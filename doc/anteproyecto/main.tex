@@ -1,0 +1,359 @@
+\documentclass{pre-tfg}
+\usepackage{url}
+%\showhelp  % comenta o borra para eliminar ayudas
+
+\title{Sense: Plataforma online de almacenamiento, visualización y analisis
+  de datos para `Internet of Things`.}
+\author{David Martín García}
+\advisorFirst{David Villa Alises}
+\advisorDepartment{Tecnologias y sistemas de información}
+\advisorSecond{Maria Jose Santofimia Romero}
+\intensification{COMPUTACIÓN}
+\docdate{2015}{Noviembre}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{INTRODUCCIÓN}
+
+La sociedad avanza hacia la una nueva era en la que internet forma un
+gran papel. En los últimos años estamos experimentando un crecimiento exponencial en la cantidad de datos volcados en internet así como en el numero de dispositivos que crean o consumen tal información. Actualmente cursamos dentro de la intensificación de computación asignaturas como 'Sistemas Multiagentes' o 'Minería de Datos' donde principios como la ubicuidad o el big-data quedan marcados como una premisa de futuro.
+
+Todo esta interconectado y tecnologías como la domotica, ocio o la
+salud sufren esta tendencia. Hoy en día dispositivos como smart
+watches, smart bands, smart phones, smart tv se conectan a internet
+para consumir y publicar datos, desde tendencias de uso hasta datos
+personales de nuestra salud o ejercicio físico. Esta ingente cantidad
+de datos conlleva grandes problemas de almacenamiento, así como un
+requisito, la optimalidad, ya que el numero de conexiones crece
+exponencialmente, tanto que es necesario nuevos protocolos como IPv6,
+donde existen 340 sextillones de direcciones. Esto hace intuir que no
+es una simple moda o tendencia que se disipara en unos años, es una
+necesidad, y empresas como
+IBM\footnote{http://www.ibmbigdatahub.com/technology/internet-of-things},
+Microsoft o
+Intel\footnote{https://software.intel.com/es-es/iot/microsoft-azure}
+apuestan por ello.
+
+Por otro lado, la mayoria de hubs existentes siguen un modelo
+freemium
+\footnote{https://azure.microsoft.com/en-us/pricing/details/iot-hub/}
+\footnote{https://devicehub.net/about/pricing}
+\footnote{http://community.thingspeak.com/documentation/api/}
+\footnote{http://xively.com/whats\_xively/}
+orientado a empresas y cuyas condiciones, si existen, son
+insuficientes para la gran mayoría de proyectos o incluso limitadas a
+determinadas placas\footnote{https://www.artik.io/}. También debemos
+valorar la integracion con la mayor candidad de dispositivos
+disponibles, asi como la gran ventaja del software libre, donde tu proyecto puede ser llevado en conjunto por una gran
+comunidad de desarrolladores que mejoran y añaden funciones a la
+aplicación final.
+
+En este punto comienza este proyecto, donde se pondra en marcha un Hub de datos, donde poder publicar y consumir toda esta información. La
+principal meta de este proyecto es la optimizacion de este proceso, asi como el analisis de los datos, dos de los principales hitos en la
+mayoria de Hubs actuales. Este hub sera de caracter gratuito y open-source, donde se mezclan tecnologias y lenguajes de forma
+heterogenea, y donde cada uno es el mejor en su campo, todos ellos en conjunto formaran un conjunto de micro-servicios, interrelacionados
+entre ellos.
+
+El uso de bases de datos NoSQL es una de las principales bazas dentro
+de este proyecto, estas bases de datos nos permiten ingerir y realizar
+operaciones a un bajo costo, asi como permitirnos realizar analisis de
+los datos desde la propia base de datos. Este tipo de bases de datos son usada por entidades como el CERN, así como un innumerables empresas en internet (Ebay, GitHub, Instagram, reddit, GoDaddy, Twitter, Facebook...). Su escalabilidad y su
+rendimiento es la principal razon por la que se han seleccionado, en
+concreto hacemos uso de Cassandra, la base de datos que empresas como
+Twitter\footnote{http://www.datastax.com/2014/04/good-morning-manhattan}
+y Facebook han hecho uso, o incluso han modificado para sus propias
+necesidades.
+
+Otra de las necesidades dentro de este proyecto sera realizada en el
+sucesor de uno de los lenguajes mas eficientes dentro de las
+tecnologias web, donde una empresa lider es uno de los mejores
+ejemplos de lo que se puede realizar mediante este lenguaje, hablamos
+de Erlang, cuya eficiencia en entornos multi-hilo no tiene precedente,
+uno de los mejores casos de uso se encuentra en WhatsApp, empresa que
+mantuvo sus servicios con un unico servidor y 50 ingenieros todo su
+potencial\footnote{http://www.fastcompany.com/3026758/inside-erlang-the-rare-programming-language-behind-whatsapps-success}\footnote{https://blog.whatsapp.com/196/1-millón-es-tan-2011?}. Su origen esta marcado por las telecomunicaciones y en
+principal por Ericcson, donde alcanzo una tasa de fiabilidad y uptime
+del 99,999999999\%, esta cifra nos hace intuir que es un lenguaje robusto, fiable, y muy eficiente en su campo, donde la eficiencia es su maximo exponente.
+
+Otras tecnologias al uso sera Docker, que nos permitira implantar un
+entorno de desarrollo estable y controlado asi como la facilidad para migrar a un modelo cloud.
+Se hara uso de containers como unidad, permitiendonos tener
+aplicaciones aisladas que trabajan conjuntamente. Este entorno de
+podra regenerar automaticamente mediante el aprovisionamiento de sus caracteristicas.
+
+\section{TECNOLOGÍA ESPECÍFICA / INTENSIFICACIÓN / ITINERARIO CURSADO POR EL ALUMNO}
+
+\begin{table}[hp]
+  \centering
+  \caption{Tecnología Específica cursada por el alumno}
+  \label{tab:tec-especifica}
+
+  \zebrarows{1}
+  \begin{tabular}{p{0.01\linewidth}p{0.4\linewidth}}
+    &\textbf{Marcar la tecnología cursada} \\
+    \hline
+    & Tecnologías de la Información \\
+    \textbf{*} &\textbf{Computación} \\
+    &Ingeniería del Software \\
+    &Ingeniería de Computadores \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+\begin{table}[hp]
+  \centering
+  \caption{Justificación de las competencias específicas abordadas en el TFG}
+  \label{tab:competencias}
+
+  \zebrarows{1}
+  \begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
+    \textbf{Competencia} & \textbf{Justificación} \\
+    \hline
+    Capacidad para adquirir, obtener, formalizar y representar el conocimiento humano en una forma computable para la resolución de problemas mediante un sistema informático en cualquier ámbito de aplicación, particularmente los relacionados con aspectos de computación, percepción y actuación en ambientes entornos inteligentes.
+    & Al tratar con valores de cualquier forma, como por ejemplo
+    sensores, debemos comprender las diferentes magnitudes asi como una
+    posible forma normal para poder comparar entre los distintos valores.\\
+    Capacidad para desarrollar y evaluar sistemas interactivos y de
+    presentación de información compleja y su aplicación a la resolución
+    de problemas de diseño de interacción persona computadora.
+    & Desarrollo de entorno grafico donde poder monitorizar los datos
+      asi como las distintas opciones y incidencias que se detecten,
+      ademas de la gestion de perfiles de usuario asi como de los
+      distintos metadatos asociados a la entrada de datos.\\
+    Capacidad para conocer y desarrollar técnicas de aprendizaje computacional y diseñar e implementar aplicaciones y sistemas que las utilicen, incluyendo las dedicadas a extracción automática de información y conocimiento a partir de grandes volúmenes de datos.
+    & Analisis de los datos obtenidos asi como  deteccion de valores anormales y obtencion de posibles respuestas ante tal estimulo.\\
+    Capacidad para evaluar la complejidad computacional de un problema, conocer estrategias algorítmicas que puedan conducir a su resolución y recomendar, desarrollar e implementar aquella que garantice el mejor rendimiento de acuerdo con los requisitos establecidos.
+    & Diseño y implementación de algoritmo de agrupamiento de datos. Este algoritmo agregara los diferentes datos con el fin de mantener controlado el tamaño máximo de la base de datos.\\
+    \hline
+  \end{tabular}
+\end{table}
+ \clearpage
+
+\section{OBJETIVOS}
+
+Desarrollo de un hub para el almacenamiento de datos con caracter
+temporal orientado al concepto IoT (`Internet of Thing`).
+
+Se debe plantear un arquitectura de microservicios de alto
+rendimiento. Se plantea una parte central que permita el
+almacenamiento, analisis y tratamiento de los datos, asi como
+servicios en torno a esta para las notificaciones a los distintos dispositivos que requieran de estos datos.
+
+Debe existir servicios de notificación, analisis, autentificación
+ademas de la gestion y almacenamiento de los datos asi como su consulta.
+
+Tambien se require de una interfaz grafica de gestion que se desarrolla
+mediante una aplicación web, asegurando asi su total compatibilidad
+con la gran mayoria de dispositivos existente.
+
+Debe tener compatibilidad con los estandares de comunicacion REST e
+ZeroC ICE, teniendo ademas en cuenta MQTT como posible candidato.
+
+Se debe disponer de una API para la comunicacion con los distintos
+dispositivos externos, asi como un protocolo de comunicación para la
+parte interna entre servicios.
+
+Se tendra el cuenta el rendimiento como principal punto de seleccion
+en la infraestructura asi como en cada parte del proyecto, debido a
+esto se preve un desarrollo multilenguaje como punto principal para la
+busqueda de este objetivo.
+
+Tambien se desarrollara el aprovisionamiento de servidores asi como la
+disposicion de un entorno de desarrollo de facil instalación para
+cualquier desarrollador.
+
+TODO Incluir grafico preliminar de la arquitectura
+
+\section{MÉTODO Y FASES DE TRABAJO}
+Para llevar a cabo este proyecto se ha llevado a cabo un análisis de
+las diversas metodologías existentes.
+
+La eleccion de una metodologia agil es fiel reflejo de la naturaleza
+de este TFG, donde a fecha inicial no se define totalmente los
+requisitos con total exactitud y donde la planificacion a corto plazo
+cobra un mayor sentido.
+
+Tras obtener las ventajas e inconvenientes de cada una se ha optado por scrumban, una mezcla
+entre Kanban y Scrum, donde se pactaran diferentes hitos dentro del
+plazo máximo para desarrollar el proyecto, cumpliendo con diferentes
+sprints, pero a su vez haciendo uso de Kanban como planificación de
+las diferentes tareas.
+
+Con esto tenemos las ventajas de ambos, por un lado controlamos el
+progreso en casa sprint, y nos permite a su vez gestionar las tareas
+mediante un tablón Kanban, obteniendo la mínima latencia desde el
+desarrollo hasta la integración con su versión de producción. Además
+nos permite seguir las diferentes fases del software, desde el diseño,
+hasta su puesta al publico, pasando por las fases de codificación,
+test, aceptación y calidad.
+
+Esta metodología nos permite adaptarnos a cualquier cambio en los
+requisitos o en el ritmo de trabajo, ya que pro la propia naturaleza
+del TFG, debe compaginarse con el resto de actividades academicas.
+
+TODO: DEFINIR HITOS A GRANDES RASGOS, es por hacerme una idea del tamaño Corregir si o si.....
+
+\begin{itemize}
+\item 1º hito
+\item - Definición de la arquitectura del proyecto
+\item - Análisis de las diferentes partes
+\item - Realización de la documentación inicial y puesta a punto de los
+\item diferentes servicios involucrados en el desarrollo
+\item 2º hito
+\item - Analisis de rendimiento de las diferentes propuestas, asi como la
+\item obtencion de una primera cifra del rendimiento esperado del proyecto en cada
+\item una de sus partes.
+\item - Codificación del núcleo de micro-servicios
+\item - Obtención de la primera versión mínimamente funcional
+\item 3º hito
+\item - Desarrollo de la interfaz web
+\item - Desarrollo del backend de análisis de datos.
+\item 4º hito
+\item - Integración con dispositivos.
+\end{itemize}
+\clearpage
+\section{MEDIOS QUE SE PRETENDEN UTILIZAR}
+
+\subsection{Medios Hardware}
+Para la realización de este proyecto se van a utilizar los siguientes
+medios hardware, se estructuraran en los diversos entornos
+disponibles:
+
+
+\textbf{Desarrollo}:
+Entorno de desarrollo, donde se realizan las tareas de codificación.
+
+\begin{table}[hp]
+  \caption{Características del entorno de desarrollo.}
+  \centering
+  \zebrarows{1}
+
+  \begin{tabular}{p{0.2\linewidth}p{0.4\linewidth}}
+    & MacBook Pro 2014 Mid.\\
+    CPU& Intel i5 4308U @ 2.8Ghz.\\
+    RAM& 8GB DDR3L 1600Mhz.\\
+    Almacenamiento& SSD M2 128GB.\\
+    SO& Debian 8.2.\\
+  \end{tabular}
+\end{table}
+
+\textbf{Staging}
+Servidor local donde se realizaran las distintas pruebas a la
+plataforma para comprobar su funcionamiento, ademas realiza las
+funciones de servidor publico donde se alojara la plataforma.
+
+\begin{table}[hp]
+  \caption{Características del entorno de staging.}
+  \centering
+  \zebrarows{1}
+
+  \begin{tabular}{p{0.2\linewidth}p{0.4\linewidth}}
+    CPU& Intel i5 4690K @ 5Ghz.\\
+    RAM& 16GB DDR3 1833Mhz.\\
+    Almacenamiento& SSD 120GB + RAID0 2TB (2 discos de 1TB).\\
+    SO& Debian 8.2.\\
+  \end{tabular}
+\end{table}
+
+\textbf{Producción}
+Servidor dedicado donde se encuentra el entorno publico, este entorno
+es el que disfrutaran los usuarios.
+
+\begin{table}[hp]
+  \caption{Características del entorno de staging.}
+  \centering
+  \zebrarows{1}
+
+  \begin{tabular}{p{0.2\linewidth}p{0.4\linewidth}}
+    CPU& Intel Xeon E5 2620V2.\\
+    RAM& 32GB DDR3 ECC.\\
+    Almacenamiento& 3x SSD 256GB (RAID0) + 100GB (Backups).\\
+    SO& Debian 8.3.\\
+  \end{tabular}
+\end{table}
+
+\clearpage
+\subsection{Medios Software}
+\begin{itemize}
+\item Control de versiones: Git.
+\item Comunicación entre las distintas partes: Slack.
+\item Técnicas de diseño e implementación software: TDD.
+\item Servicios de integración continua: TravisCI ó CircleCI.
+\item Lenguaje: Elixir, C, Python, Ruby, Javascript, Html5.
+\item Entorno de desarrollo: Emacs.
+\end{itemize}
+
+Además, se prevé utilizar las siguientes tecnologías en la capa de
+persistencia:
+
+\begin{itemize}
+\item Base de datos: NoSQL con escalabilidad en horizontal asi como un
+  tiempo medio de respuesta bajo en las inserciones. Se prevé utilizar Cassandra.
+\item Persistencia temporal: Redis.
+\end{itemize}
+
+
+\section{REFERENCIAS}
+
+En esta sección se incluirán todas las referencias bibliográficas, ordenadas
+alfabéticamente por el primer apellido del primer autor, de las obras de las cuales se
+haya realizado alguna cita en los apartados anteriores. Las referencias deberán contener
+datos básicos como nombre y apellidos de los autores, título de la obra, evento al que
+pertenece, páginas, fecha y lugar de celebración (si se tratara de artículos de congreso),
+ISBN, editorial y ciudad (si se tratara de libro), nombre de revista, páginas, volumen y
+número (si se tratara de revista), etc.
+
+Se empleará un formato de referencia reconocido en el ámbito académico como
+ACM\footnote{http://www.acm.org/sigs/publications/proceedings-templates}\footnote{http://www.cs.ucy.ac.cy/\~{}chryssis/specs/ACM-refguide.pdf}.
+Otros formatos aconsejables son, por ejemplo, IEEE, AMA, APA y AMA.
+
+A continuación una sección de «Referencias» con ejemplos de referencias con formato ACM para:
+
+\begin{itemize}
+ \item Un artículo de revista~\cite{Bow93}.
+\item Un informe técnico~\cite{Ding97}.
+\item Un libro~\cite{Tavel07}.
+\item Un capítulo de libro~\cite{Greiner99}.
+\item Un artículo en las actas de un congreso~\cite{Frohlic00}.
+\item Para una página web~\cite{Steele04} (con autores conocidos).
+\item Para una página web~\cite{Oxygen} (con autores desconocidos).
+\end{itemize}
+
+\bibliographystyle{alpha}
+\bibliography{main}
+
+\end{document}
+
+% Local Variables:
+% coding: utf-8
+% mode: flyspell
+% ispell-local-dictionary: "castellano8"
+% mode: latex
+% End:
+
+
+%http://www.erol.si/2015/01/the-complete-list-of-all-timeseries-databases-for-your-iot-project/
+%http://www.infoworld.com/article/2825890/application-development/why-redis-beats-memcached-for-caching.html
+%http://phoenix.thefirehoseproject.com/0.html
+%https://github.com/trenpixster/addict
+%https://github.com/opendrops/passport
+%http://safecast.org/tilemap/
+%https://es.wikipedia.org/wiki/IPv6
+%http://cassandra.apache.org/
+%http://stackoverflow.com/questions/410616/increasing-the-maximum-number-of-tcp-ip-connections-in-linux
+
+%(IOT CASSANDRA - https://www.instaclustr.com/customers/iot/,
+%https://spark-summit.org/2014/wp-content/uploads/2014/07/Using-Spark-Streaming-for-High-Velocity-Analytics-on-Cassandra-Albert-Tobey-Tupshin-Harper.pdf,
+%http://www.datastax.com/internet-of-things,
+%http://www.planetcassandra.org/blog/functional_use_cases/internet-of-things-sensor-data/,
+%http://highscalability.com/blog/2010/7/11/so-why-is-twitter-really-not-using-cassandra-to-store-tweets.html,
+%)
+
+%  LocalWords:  Intel ademas
