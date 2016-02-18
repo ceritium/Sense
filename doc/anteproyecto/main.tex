@@ -2,15 +2,14 @@
 \usepackage{url}
 %\showhelp  % comenta o borra para eliminar ayudas
 
-\title{Sense: Plataforma online de almacenamiento, visualización y analisis
-  de datos para `Internet of Things`.}
+\title{Sense: Hub de datos de alto rendimiento y escalabilidad para
+  tecnologias `Internet of Things`.}
 \author{David Martín García}
 \advisorFirst{David Villa Alises}
 \advisorDepartment{Tecnologias y sistemas de información}
 \advisorSecond{Maria Jose Santofimia Romero}
 \intensification{COMPUTACIÓN}
 \docdate{2015}{Noviembre}
-
 
 \begin{document}
 
@@ -28,8 +27,22 @@ Todo esta interconectado y tecnologías como la domotica, ocio o la
 salud sufren esta tendencia. Hoy en día dispositivos como smart
 watches, smart bands, smart phones, smart tv se conectan a internet
 para consumir y publicar datos, desde tendencias de uso hasta datos
-personales de nuestra salud o ejercicio físico. Esta ingente cantidad
-de datos conlleva grandes problemas de almacenamiento, así como un
+personales de nuestra salud o ejercicio físico, por otro lado,
+empresas de multitud de ambitos consumen y publican datos para uso
+interno, empresas de logistica, automatizacion de entornos domesticos
+e industriales, generacion y distribucion de energia electrica,
+automovil, telecomunicaciones e informacion. Todos estos campos se ven
+cada vez mas influenciados por esta tecnologia.
+
+Solo hay que imaginar una cadena logistica, donde una gran cantidad de
+sensores y actuadores funcionan de forma conjunta para proveer de
+informacion, tanto al usuario como al propio funcionamiento de la
+empresa.
+
+Cada dia se ve mas presente mercados influenciados por tecnologias M2M
+(Machine to Machine) donde la interaccion es unicamente entre
+dispositivos. Empresas como Cisco preven 50 billones de dispositivos conectados a
+internet, esta ingente cantidad de datos conlleva grandes problemas de almacenamiento, así como un
 requisito, la optimalidad, ya que el numero de conexiones crece
 exponencialmente, tanto que es necesario nuevos protocolos como IPv6,
 donde existen 340 sextillones de direcciones. Esto hace intuir que no
@@ -38,54 +51,28 @@ necesidad, y empresas como
 IBM\footnote{http://www.ibmbigdatahub.com/technology/internet-of-things},
 Microsoft o
 Intel\footnote{https://software.intel.com/es-es/iot/microsoft-azure}
-apuestan por ello.
+apuestan por ello. Otras empresas como Ericson, Siemens Bosch tienen las tecnologias IoT
+como punta de lanza en las presentaciones de sus tecnologias mas
+novedosas.
 
-Por otro lado, la mayoria de hubs existentes siguen un modelo
-freemium
-\footnote{https://azure.microsoft.com/en-us/pricing/details/iot-hub/}
-\footnote{https://devicehub.net/about/pricing}
-\footnote{http://community.thingspeak.com/documentation/api/}
-\footnote{http://xively.com/whats\_xively/}
-orientado a empresas y cuyas condiciones, si existen, son
-insuficientes para la gran mayoría de proyectos o incluso limitadas a
-determinadas placas\footnote{https://www.artik.io/}. También debemos
-valorar la integracion con la mayor candidad de dispositivos
-disponibles, asi como la gran ventaja del software libre, donde tu proyecto puede ser llevado en conjunto por una gran
-comunidad de desarrolladores que mejoran y añaden funciones a la
-aplicación final.
+Todo esto hace preveer que no es solo un cambio de tendencia temporal,
+es uno de los mayores campos de investigacion y negocio en los
+proximos años
+
+Por otro lado, el numero de hubs de datos ha crecido de manera
+exponencial, asi como su valor en el mercado, dado que existe una gran
+demanda de este tipo de servicios.
+
 
 En este punto comienza este proyecto, donde se pondra en marcha un Hub de datos, donde poder publicar y consumir toda esta información. La
 principal meta de este proyecto es la optimizacion de este proceso, asi como el analisis de los datos, dos de los principales hitos en la
 mayoria de Hubs actuales. Este hub sera de caracter gratuito y open-source, donde se mezclan tecnologias y lenguajes de forma
 heterogenea, y donde cada uno es el mejor en su campo, todos ellos en conjunto formaran un conjunto de micro-servicios, interrelacionados
-entre ellos.
+entre ellos. Las premisas del proyecto estan principalmente marcadas
+por la tasa de ingestion de datos asi como la posibilidad de realizar
+operaciones a un bajo costo, operaciones como el analisis de
+los datos.
 
-El uso de bases de datos NoSQL es una de las principales bazas dentro
-de este proyecto, estas bases de datos nos permiten ingerir y realizar
-operaciones a un bajo costo, asi como permitirnos realizar analisis de
-los datos desde la propia base de datos. Este tipo de bases de datos son usada por entidades como el CERN, así como un innumerables empresas en internet (Ebay, GitHub, Instagram, reddit, GoDaddy, Twitter, Facebook...). Su escalabilidad y su
-rendimiento es la principal razon por la que se han seleccionado, en
-concreto hacemos uso de Cassandra, la base de datos que empresas como
-Twitter\footnote{http://www.datastax.com/2014/04/good-morning-manhattan}
-y Facebook han hecho uso, o incluso han modificado para sus propias
-necesidades.
-
-Otra de las necesidades dentro de este proyecto sera realizada en el
-sucesor de uno de los lenguajes mas eficientes dentro de las
-tecnologias web, donde una empresa lider es uno de los mejores
-ejemplos de lo que se puede realizar mediante este lenguaje, hablamos
-de Erlang, cuya eficiencia en entornos multi-hilo no tiene precedente,
-uno de los mejores casos de uso se encuentra en WhatsApp, empresa que
-mantuvo sus servicios con un unico servidor y 50 ingenieros todo su
-potencial\footnote{http://www.fastcompany.com/3026758/inside-erlang-the-rare-programming-language-behind-whatsapps-success}\footnote{https://blog.whatsapp.com/196/1-millón-es-tan-2011?}. Su origen esta marcado por las telecomunicaciones y en
-principal por Ericcson, donde alcanzo una tasa de fiabilidad y uptime
-del 99,999999999\%, esta cifra nos hace intuir que es un lenguaje robusto, fiable, y muy eficiente en su campo, donde la eficiencia es su maximo exponente.
-
-Otras tecnologias al uso sera Docker, que nos permitira implantar un
-entorno de desarrollo estable y controlado asi como la facilidad para migrar a un modelo cloud.
-Se hara uso de containers como unidad, permitiendonos tener
-aplicaciones aisladas que trabajan conjuntamente. Este entorno de
-podra regenerar automaticamente mediante el aprovisionamiento de sus caracteristicas.
 
 \section{TECNOLOGÍA ESPECÍFICA / INTENSIFICACIÓN / ITINERARIO CURSADO POR EL ALUMNO}
 
@@ -317,13 +304,7 @@ Otros formatos aconsejables son, por ejemplo, IEEE, AMA, APA y AMA.
 A continuación una sección de «Referencias» con ejemplos de referencias con formato ACM para:
 
 \begin{itemize}
- \item Un artículo de revista~\cite{Bow93}.
-\item Un informe técnico~\cite{Ding97}.
-\item Un libro~\cite{Tavel07}.
-\item Un capítulo de libro~\cite{Greiner99}.
-\item Un artículo en las actas de un congreso~\cite{Frohlic00}.
-\item Para una página web~\cite{Steele04} (con autores conocidos).
-\item Para una página web~\cite{Oxygen} (con autores desconocidos).
+ \item Enable things to talk, Springer~\cite{EIoT2Talk13}.
 \end{itemize}
 
 \bibliographystyle{alpha}
