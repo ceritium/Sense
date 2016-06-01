@@ -10,6 +10,8 @@
 \intensification{COMPUTACIÓN}
 \docdate{2015}{Noviembre}
 
+\def\FIXME #1 {\textcolor{red}{\textbf{FIXME:}} #1}
+
 \begin{document}
 
 \maketitle
@@ -19,58 +21,60 @@
 
 \section{INTRODUCCIÓN}
 
-La sociedad avanza hacia la una nueva era en la que internet forma un
-gran papel. En los últimos años estamos experimentando un crecimiento exponencial en la cantidad de datos volcados en internet así como en el numero de dispositivos que crean o consumen tal información. Actualmente cursamos dentro de la intensificación de computación asignaturas como 'Sistemas Multiagentes' o 'Minería de Datos' donde principios como la ubicuidad o el big-data quedan marcados como una premisa de futuro.
+La sociedad avanza hacia una nueva era en la que Internet tiene un papel aún más
+importante. En los últimos años estamos experimentando un crecimiento exponencial en la
+cantidad de datos volcados en Internet así como en el número de dispositivos que generan o
+consumen tal información. En ámbitos como los sistemas multiagente o la minería de datos
+se manejan conceptos como la ubicuidad o \emph{Big Data} que se considerar premisas de
+futuro, y que están íntimamente relacionados con la manipulación y extracción de
+conocimiento a partir de cantidades masivas de datos.
 
-Todo esta interconectado y tecnologías como la domotica, ocio o la
-salud sufren esta tendencia. Hoy en día dispositivos como smart
-watches, smart bands, smart phones, smart tv se conectan a internet
-para consumir y publicar datos, desde tendencias de uso hasta datos
-personales de nuestra salud o ejercicio físico, por otro lado,
-empresas de multitud de ambitos consumen y publican datos para uso
-interno, empresas de logistica, automatizacion de entornos domesticos
-e industriales, generacion y distribucion de energia electrica,
-automovil, telecomunicaciones e informacion. Todos estos campos se ven
-cada vez mas influenciados por esta tecnologia.
+Todo está interconectado y tecnologías como la domótica, el ocio o la salud están muy
+influidas por esta tendencia. Hoy en día, dispositivos como smart watches, smart bands,
+smart phones o smart TVs se conectan a Internet para consumir y publicar datos, desde
+tendencias de uso hasta datos personales de nuestra salud o ejercicio físico. Por otro
+lado, empresas de multitud de ámbitos consumen y publican datos para uso interno. Empresas
+de logística, automatización de entornos domésticos e industriales, generación y
+distribución de energía eléctrica, automóvil, telecomunicaciones e información. Todos
+estos campos se ven cada vez mas influenciados por esta tecnología.
 
-Solo hay que imaginar una cadena logistica, donde una gran cantidad de
-sensores y actuadores funcionan de forma conjunta para proveer de
-informacion, tanto al usuario como al propio funcionamiento de la
-empresa.
+Solo hay que imaginar una cadena logística, donde una gran cantidad de sensores y
+actuadores funcionan de forma conjunta para proveer de información, tanto al usuario como
+al propio funcionamiento de la empresa.
 
-Cada dia se ve mas presente mercados influenciados por tecnologias M2M
-(Machine to Machine) donde la interaccion es unicamente entre
-dispositivos. Empresas como Cisco preven 50 billones de dispositivos conectados a
-internet, esta ingente cantidad de datos conlleva grandes problemas de almacenamiento, así como un
-requisito, la optimalidad, ya que el numero de conexiones crece
-exponencialmente, tanto que es necesario nuevos protocolos como IPv6,
-donde existen 340 sextillones de direcciones. Esto hace intuir que no
-es una simple moda o tendencia que se disipara en unos años, es una
-necesidad, y empresas como
-IBM\footnote{http://www.ibmbigdatahub.com/technology/internet-of-things},
-Microsoft o
-Intel\footnote{https://software.intel.com/es-es/iot/microsoft-azure}
-apuestan por ello. Otras empresas como Ericson, Siemens Bosch tienen las tecnologias IoT
-como punta de lanza en las presentaciones de sus tecnologias mas
-novedosas.
+Cada día se ve mas presente mercados influenciados por tecnologías M2M (Machine to
+Machine) donde la interacción es únicamente entre dispositivos (sin intervención
+humana). Empresas como Cisco prevén 50 billones de dispositivos conectados a
+Internet. Esta ingente cantidad de datos conlleva grandes problemas de almacenamiento, así
+como un requisito esencial: la optimalidad. El número de conexiones crece
+exponencialmente, tanto que son necesarios nuevos protocolos como IPv6, que proporciona 340
+sextillones de direcciones. Esto hace intuir que no es una simple moda o tendencia que se
+disipara en unos años, es una necesidad, y empresas como
+IBM\footnote{http://www.ibmbigdatahub.com/technology/internet-of-things}, Microsoft o
+Intel\footnote{https://software.intel.com/es-es/iot/microsoft-azure} apuestan por
+ello. Otras empresas como Ericson, Siemens Bosch tienen las tecnologias IoT como punta de
+lanza en las presentaciones de sus tecnologías mas novedosas.
 
-Todo esto hace preveer que no es solo un cambio de tendencia temporal,
-es uno de los mayores campos de investigacion y negocio en los
-proximos años
+Todo esto hace prever que no es solo un cambio de tendencia temporal, es uno de los
+mayores campos de investigación y negocio en los próximos años. Es considerado por muchos
+como una de las innovaciones disruptivas más importantes en la actualidad.
 
-Por otro lado, el numero de hubs de datos ha crecido de manera
-exponencial, asi como su valor en el mercado, dado que existe una gran
-demanda de este tipo de servicios.
+\FIXME{Explica aquí que es un hub de datos}
 
+Por otro lado, el número de hubs de datos ha crecido de manera exponencial, así como su
+valor en el mercado, dado que existe una gran demanda de este tipo de servicios.
 
-En este punto comienza este proyecto, donde se pondra en marcha un Hub de datos, donde poder publicar y consumir toda esta información. La
-principal meta de este proyecto es la optimizacion de este proceso, asi como el analisis de los datos, dos de los principales hitos en la
-mayoria de Hubs actuales. Este hub sera de caracter gratuito y open-source, donde se mezclan tecnologias y lenguajes de forma
-heterogenea, y donde cada uno es el mejor en su campo, todos ellos en conjunto formaran un conjunto de micro-servicios, interrelacionados
-entre ellos. Las premisas del proyecto estan principalmente marcadas
-por la tasa de ingestion de datos asi como la posibilidad de realizar
-operaciones a un bajo costo, operaciones como el analisis de
-los datos.
+Y es en ese punto donde encaja este proyecto. Se trata de crear un \emph{hub de datos},
+donde poder publicar y consumir toda esta información. La principal meta de este proyecto
+es la optimización de este proceso del proceso de publicación y consumo, así como el
+análisis de los datos, dos de los principales hitos en la mayoría de Hubs actuales. Este
+hub será de carácter gratuito y \emph{open source}. Mezclará tecnologías y lenguajes de
+forma heterogénea, donde cada uno es el mejor en su campo, todos ellos en conjunto
+formaran un conjunto de micro-servicios, interrelacionados entre si.
+
+Las premisas del proyecto están principalmente marcadas por la tasa de ingestión de datos
+así como la posibilidad de realizar operaciones a un bajo costo computacional, operaciones
+como el análisis de los datos.
 
 
 \section{TECNOLOGÍA ESPECÍFICA / INTENSIFICACIÓN / ITINERARIO CURSADO POR EL ALUMNO}
@@ -102,21 +106,36 @@ los datos.
   \begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
     \textbf{Competencia} & \textbf{Justificación} \\
     \hline
-    Capacidad para adquirir, obtener, formalizar y representar el conocimiento humano en una forma computable para la resolución de problemas mediante un sistema informático en cualquier ámbito de aplicación, particularmente los relacionados con aspectos de computación, percepción y actuación en ambientes entornos inteligentes.
+    Capacidad para adquirir, obtener, formalizar y representar el conocimiento humano en
+    una forma computable para la resolución de problemas mediante un sistema informático
+    en cualquier ámbito de aplicación, particularmente los relacionados con aspectos de
+    computación, percepción y actuación en ambientes entornos inteligentes.
     & Al tratar con valores de cualquier forma, como por ejemplo
-    sensores, debemos comprender las diferentes magnitudes asi como una
+    sensores, debemos comprender las diferentes magnitudes así como una
     posible forma normal para poder comparar entre los distintos valores.\\
+    %
     Capacidad para desarrollar y evaluar sistemas interactivos y de
     presentación de información compleja y su aplicación a la resolución
     de problemas de diseño de interacción persona computadora.
-    & Desarrollo de entorno grafico donde poder monitorizar los datos
-      asi como las distintas opciones y incidencias que se detecten,
-      ademas de la gestion de perfiles de usuario asi como de los
-      distintos metadatos asociados a la entrada de datos.\\
-    Capacidad para conocer y desarrollar técnicas de aprendizaje computacional y diseñar e implementar aplicaciones y sistemas que las utilicen, incluyendo las dedicadas a extracción automática de información y conocimiento a partir de grandes volúmenes de datos.
-    & Analisis de los datos obtenidos asi como  deteccion de valores anormales y obtencion de posibles respuestas ante tal estimulo.\\
-    Capacidad para evaluar la complejidad computacional de un problema, conocer estrategias algorítmicas que puedan conducir a su resolución y recomendar, desarrollar e implementar aquella que garantice el mejor rendimiento de acuerdo con los requisitos establecidos.
-    & Diseño y implementación de algoritmo de agrupamiento de datos. Este algoritmo agregara los diferentes datos con el fin de mantener controlado el tamaño máximo de la base de datos.\\
+    & Desarrollo de entorno gráfico donde poder monitorizar los datos
+    así como las distintas opciones y incidencias que se detecten,
+    además de la gestión de perfiles de usuario así como de los
+    distintos metadatos asociados a la entrada de datos.\\
+    %
+    Capacidad para conocer y desarrollar técnicas de aprendizaje computacional y diseñar e
+    implementar aplicaciones y sistemas que las utilicen, incluyendo las dedicadas a
+    extracción automática de información y conocimiento a partir de grandes volúmenes de
+    datos.
+    & Análisis de los datos obtenidos así como  detección de valores anormales y obtención
+    de posibles respuestas ante tal estimulo.\\
+    %
+    Capacidad para evaluar la complejidad computacional de un problema, conocer
+    estrategias algorítmicas que puedan conducir a su resolución y recomendar, desarrollar
+    e implementar aquella que garantice el mejor rendimiento de acuerdo con los requisitos
+    establecidos.
+    & Diseño y implementación de algoritmo de agrupamiento de datos. Este algoritmo
+    agregara los diferentes datos con el fin de mantener controlado el tamaño máximo de la
+    base de datos.\\
     \hline
   \end{tabular}
 \end{table}
@@ -124,100 +143,105 @@ los datos.
 
 \section{OBJETIVOS}
 
-Desarrollo de un hub para el almacenamiento de datos con caracter
-temporal orientado al concepto IoT (`Internet of Thing`).
+Desarrollo de un hub para el almacenamiento de datos con carácter temporal orientado al
+concepto IoT (Internet of Things).
 
-Se debe plantear un arquitectura de microservicios de alto
-rendimiento. Se plantea una parte central que permita el
-almacenamiento, analisis y tratamiento de los datos, asi como
-servicios en torno a esta para las notificaciones a los distintos dispositivos que requieran de estos datos.
+Se debe plantear un arquitectura de micro-servicios de alto rendimiento. Se plantea una
+parte central que permita el almacenamiento, análisis y tratamiento de los datos, así como
+servicios en torno a ésta para las notificaciones a los distintos dispositivos que
+requieran de estos datos.
 
-Debe existir servicios de notificación, analisis, autentificación
-ademas de la gestion y almacenamiento de los datos asi como su consulta.
+Deben existir servicios de notificación, análisis, autenticación además de la gestión y
+almacenamiento de los datos así como su consulta.
 
-Tambien se require de una interfaz grafica de gestion que se desarrolla
-mediante una aplicación web, asegurando asi su total compatibilidad
-con la gran mayoria de dispositivos existente.
+También se requiere de una interfaz gráfica de gestión que se desarrolla mediante una
+aplicación web, asegurando así su total compatibilidad con la gran mayoría de dispositivos
+existente.
 
-Debe tener compatibilidad con los estandares de comunicacion REST e
-ZeroC ICE, teniendo ademas en cuenta MQTT como posible candidato.
+Debe tener compatibilidad con los estándares de comunicación como REST, MQTT o ZeroC Ice.
 
-Se debe disponer de una API para la comunicacion con los distintos
-dispositivos externos, asi como un protocolo de comunicación para la
-parte interna entre servicios.
+Se debe disponer de una API para la comunicación con los distintos dispositivos externos,
+así como un protocolo de comunicación para la parte interna entre servicios.
 
-Se tendra el cuenta el rendimiento como principal punto de seleccion
-en la infraestructura asi como en cada parte del proyecto, debido a
-esto se preve un desarrollo multilenguaje como punto principal para la
-busqueda de este objetivo.
+Se tendrá el cuenta el rendimiento como principal punto de selección en la infraestructura
+así como en cada parte del proyecto, debido a esto se prevé un desarrollo metalenguaje
+como punto principal para la búsqueda de este objetivo.
 
-Tambien se desarrollara el aprovisionamiento de servidores asi como la
-disposicion de un entorno de desarrollo de facil instalación para
-cualquier desarrollador.
+También se desarrollara el aprovisionamiento de servidores así como la disposición de un
+entorno de desarrollo de fácil instalación para cualquier desarrollador.
 
-TODO Incluir grafico preliminar de la arquitectura
+\FIXME{TODO Incluir gráfico preliminar de la arquitectura}
+
 
 \section{MÉTODO Y FASES DE TRABAJO}
-Para llevar a cabo este proyecto se ha llevado a cabo un análisis de
-las diversas metodologías existentes.
 
-La eleccion de una metodologia agil es fiel reflejo de la naturaleza
-de este TFG, donde a fecha inicial no se define totalmente los
-requisitos con total exactitud y donde la planificacion a corto plazo
-cobra un mayor sentido.
+Para llevar a cabo este proyecto se realizado un análisis previo de las diversas
+metodologías existentes.
 
-Tras obtener las ventajas e inconvenientes de cada una se ha optado por scrumban, una mezcla
-entre Kanban y Scrum, donde se pactaran diferentes hitos dentro del
-plazo máximo para desarrollar el proyecto, cumpliendo con diferentes
-sprints, pero a su vez haciendo uso de Kanban como planificación de
-las diferentes tareas.
+La elección de una metodología ágil es fiel reflejo de la naturaleza de este proyecto,
+donde a fecha inicial no se define totalmente los requisitos con total exactitud y donde
+la planificación a corto plazo cobra un mayor sentido.
 
-Con esto tenemos las ventajas de ambos, por un lado controlamos el
-progreso en casa sprint, y nos permite a su vez gestionar las tareas
-mediante un tablón Kanban, obteniendo la mínima latencia desde el
-desarrollo hasta la integración con su versión de producción. Además
-nos permite seguir las diferentes fases del software, desde el diseño,
-hasta su puesta al publico, pasando por las fases de codificación,
-test, aceptación y calidad.
+Tras obtener las ventajas e inconvenientes de cada una se ha optado por scrumban, una
+mezcla entre Kanban y Scrum, donde se pactaran diferentes hitos dentro del plazo máximo
+para desarrollar el proyecto, cumpliendo con diferentes \emph{sprints}, pero a su vez
+haciendo uso de Kanban como planificación de las diferentes tareas.
 
-Esta metodología nos permite adaptarnos a cualquier cambio en los
-requisitos o en el ritmo de trabajo, ya que pro la propia naturaleza
-del TFG, debe compaginarse con el resto de actividades academicas.
+Con esto tenemos las ventajas de ambos, por un lado controlamos el progreso en casa
+sprint, y nos permite a su vez gestionar las tareas mediante un tablón Kanban, obteniendo
+la mínima latencia desde el desarrollo hasta la integración con su versión de
+producción. Además nos permite seguir las diferentes fases del software, desde el diseño,
+hasta su puesta al publico, pasando por las fases de codificación, test, aceptación y
+calidad.
 
-TODO: DEFINIR HITOS A GRANDES RASGOS, es por hacerme una idea del tamaño Corregir si o si.....
+Esta metodología nos permite adaptarnos mejor a los cambios en los requisitos o en el ritmo
+de trabajo, ya que por la propia naturaleza del proyecto, debe compaginarse con el resto de
+actividades académicas.
+
+\FIXME{TODO: DEFINIR HITOS A GRANDES RASGOS, es por hacerme una idea del tamaño Corregir
+  si o si.....}
+
 
 \begin{itemize}
-\item 1º hito
-\item - Definición de la arquitectura del proyecto
-\item - Análisis de las diferentes partes
-\item - Realización de la documentación inicial y puesta a punto de los
-\item diferentes servicios involucrados en el desarrollo
-\item 2º hito
-\item - Analisis de rendimiento de las diferentes propuestas, asi como la
-\item obtencion de una primera cifra del rendimiento esperado del proyecto en cada
-\item una de sus partes.
-\item - Codificación del núcleo de micro-servicios
-\item - Obtención de la primera versión mínimamente funcional
-\item 3º hito
-\item - Desarrollo de la interfaz web
-\item - Desarrollo del backend de análisis de datos.
-\item 4º hito
-\item - Integración con dispositivos.
+\item Hito 1
+  \begin{itemize}
+  \item Definición de la arquitectura del hub
+  \item Análisis de los componentes
+  \item Realización de la documentación inicial y puesta a punto de los
+    diferentes servicios involucrados en el desarrollo
+  \end{itemize}
+
+\item Hito 2
+  \begin{itemize}
+  \item Análisis de rendimiento de las diferentes propuestas, así como la
+    obtención de una primera estadística de rendimiento esperado del proyecto en cada
+    una de sus partes.
+  \item Codificación del núcleo de micro-servicios
+  \item Obtención de la primera versión funcional
+  \end{itemize}
+
+\item Hito 3
+  \begin{itemize}
+  \item Desarrollo de la interfaz web
+  \item Desarrollo del backend de análisis de datos
+  \end{itemize}
+
+\item Hito 4: Integración con dispositivos.
 \end{itemize}
+
 \clearpage
 \section{MEDIOS QUE SE PRETENDEN UTILIZAR}
 
 \subsection{Medios Hardware}
-Para la realización de este proyecto se van a utilizar los siguientes
-medios hardware, se estructuraran en los diversos entornos
-disponibles:
 
+Para la realización de este proyecto se van a utilizar los siguientes medios hardware, se
+estructuraran en los diversos entornos disponibles:
 
 \textbf{Desarrollo}:
 Entorno de desarrollo, donde se realizan las tareas de codificación.
 
 \begin{table}[hp]
-  \caption{Características del entorno de desarrollo.}
+  \caption{Características del entorno de desarrollo}
   \centering
   \zebrarows{1}
 
@@ -231,12 +255,13 @@ Entorno de desarrollo, donde se realizan las tareas de codificación.
 \end{table}
 
 \textbf{Staging}
-Servidor local donde se realizaran las distintas pruebas a la
-plataforma para comprobar su funcionamiento, ademas realiza las
-funciones de servidor publico donde se alojara la plataforma.
+
+Servidor local donde se realizaran las distintas pruebas a la plataforma para comprobar su
+funcionamiento, además realiza las funciones de servidor publico donde se alojara la
+plataforma.
 
 \begin{table}[hp]
-  \caption{Características del entorno de staging.}
+  \caption{Características del entorno de staging}
   \centering
   \zebrarows{1}
 
@@ -249,11 +274,13 @@ funciones de servidor publico donde se alojara la plataforma.
 \end{table}
 
 \textbf{Producción}
-Servidor dedicado donde se encuentra el entorno publico, este entorno
-es el que disfrutaran los usuarios.
 
+Servidor dedicado donde se encuentra el entorno publico, este entorno es el que
+disfrutaran los usuarios.
+
+\FIXME{Caption repetido C\&P?}
 \begin{table}[hp]
-  \caption{Características del entorno de staging.}
+  \caption{Características del entorno de staging}
   \centering
   \zebrarows{1}
 
@@ -267,26 +294,33 @@ es el que disfrutaran los usuarios.
 
 \clearpage
 \subsection{Medios Software}
+
 \begin{itemize}
 \item Control de versiones: Git.
 \item Comunicación entre las distintas partes: Slack.
 \item Técnicas de diseño e implementación software: TDD.
 \item Servicios de integración continua: TravisCI ó CircleCI.
-\item Lenguaje: Elixir, C, Python, Ruby, Javascript, Html5.
+\item Lenguaje: Elixir, C, Python, Ruby, JavaScript, HTML5.
 \item Entorno de desarrollo: Emacs.
 \end{itemize}
 
-Además, se prevé utilizar las siguientes tecnologías en la capa de
-persistencia:
+Además, se prevé utilizar las siguientes tecnologías en la capa de persistencia:
 
 \begin{itemize}
-\item Base de datos: NoSQL con escalabilidad en horizontal asi como un
+\item Base de datos: NoSQL con escalabilidad en horizontal así como un
   tiempo medio de respuesta bajo en las inserciones. Se prevé utilizar Cassandra.
 \item Persistencia temporal: Redis.
 \end{itemize}
 
 
 \section{REFERENCIAS}
+
+\FIXME{Esto son las instrucciones de la plantilla!}
+
+\FIXME{Las referencias son MUY
+  importantes en el anteproyecto. Debes \textbf{citar} en la introducción al menos 6 o 7
+  artículos o revistas de investigación que traten el tema de IoT, manipulación de datos
+  masiva y otros aspectos esenciales del proyecto.}
 
 En esta sección se incluirán todas las referencias bibliográficas, ordenadas
 alfabéticamente por el primer apellido del primer autor, de las obras de las cuales se
@@ -336,4 +370,4 @@ A continuación una sección de «Referencias» con ejemplos de referencias con 
 %http://highscalability.com/blog/2010/7/11/so-why-is-twitter-really-not-using-cassandra-to-store-tweets.html,
 %)
 
-%  LocalWords:  Intel ademas
+%  LocalWords:  Intel ademas domótica smart multiagente metadatos Kanban
