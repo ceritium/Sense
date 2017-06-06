@@ -1,5 +1,7 @@
 \documentclass{pre-tfg}
 \usepackage{url}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
 %\showhelp  % comenta o borra para eliminar ayudas
 
 \title{Sense: Plataforma de alto rendimiento para captura y procesado de eventos IoT}
@@ -59,10 +61,10 @@ Todo esto hace prever que no es solo un cambio de tendencia temporal, es uno de 
 mayores campos de investigación y negocio en los próximos años. Es considerado por muchos
 como una de las innovaciones disruptivas más importantes en la actualidad.
 
-\FIXME{Explica aquí que es un hub de datos}
-
 Por otro lado, el número de hubs de datos ha crecido de manera exponencial, así como su
 valor en el mercado, dado que existe una gran demanda de este tipo de servicios.
+
+Al hacer referencia al término \emph{hub de datos}, entendemos estos como la infraestructura necesaria para el correcto almacenamiento de datos heterogéneos, donde posteriormente pueden ser visualizados, distribuidos y compartidos.
 
 Y es en ese punto donde encaja este proyecto. Se trata de crear un \emph{hub de datos},
 donde poder publicar y consumir toda esta información. La principal meta de este proyecto
@@ -170,8 +172,7 @@ como punto principal para la búsqueda de este objetivo.
 También se desarrollara el aprovisionamiento de servidores así como la disposición de un
 entorno de desarrollo de fácil instalación para cualquier desarrollador.
 
-\FIXME{TODO Incluir gráfico preliminar de la arquitectura}
-
+\includegraphics{grafico-arquitectura.png}
 
 \section{MÉTODO Y FASES DE TRABAJO}
 
@@ -201,12 +202,11 @@ actividades académicas.
 \FIXME{TODO: DEFINIR HITOS A GRANDES RASGOS, es por hacerme una idea del tamaño Corregir
   si o si.....}
 
-
 \begin{itemize}
-\item Hito 1
+\item Hito 1 - Analisis
   \begin{itemize}
-  \item Definición de la arquitectura del hub
-  \item Análisis de los componentes
+  \item 
+  \item 
   \item Realización de la documentación inicial y puesta a punto de los
     diferentes servicios involucrados en el desarrollo
   \end{itemize}
@@ -225,9 +225,6 @@ actividades académicas.
   \item Desarrollo de la interfaz web
   \item Desarrollo del backend de análisis de datos
   \end{itemize}
-
-\item Hito 4: Integración con dispositivos.
-\end{itemize}
 
 \clearpage
 \section{MEDIOS QUE SE PRETENDEN UTILIZAR}
@@ -278,9 +275,8 @@ plataforma.
 Servidor dedicado donde se encuentra el entorno publico, este entorno es el que
 disfrutaran los usuarios.
 
-\FIXME{Caption repetido C\&P?}
 \begin{table}[hp]
-  \caption{Características del entorno de staging}
+  \caption{Características del entorno de producción}
   \centering
   \zebrarows{1}
 
@@ -315,29 +311,17 @@ Además, se prevé utilizar las siguientes tecnologías en la capa de persistenc
 
 \section{REFERENCIAS}
 
-\FIXME{Esto son las instrucciones de la plantilla!}
-
 \FIXME{Las referencias son MUY
   importantes en el anteproyecto. Debes \textbf{citar} en la introducción al menos 6 o 7
   artículos o revistas de investigación que traten el tema de IoT, manipulación de datos
   masiva y otros aspectos esenciales del proyecto.}
 
-En esta sección se incluirán todas las referencias bibliográficas, ordenadas
-alfabéticamente por el primer apellido del primer autor, de las obras de las cuales se
-haya realizado alguna cita en los apartados anteriores. Las referencias deberán contener
-datos básicos como nombre y apellidos de los autores, título de la obra, evento al que
-pertenece, páginas, fecha y lugar de celebración (si se tratara de artículos de congreso),
-ISBN, editorial y ciudad (si se tratara de libro), nombre de revista, páginas, volumen y
-número (si se tratara de revista), etc.
-
-Se empleará un formato de referencia reconocido en el ámbito académico como
-ACM\footnote{http://www.acm.org/sigs/publications/proceedings-templates}\footnote{http://www.cs.ucy.ac.cy/\~{}chryssis/specs/ACM-refguide.pdf}.
-Otros formatos aconsejables son, por ejemplo, IEEE, AMA, APA y AMA.
-
-A continuación una sección de «Referencias» con ejemplos de referencias con formato ACM para:
-
 \begin{itemize}
- \item Enable things to talk, Springer~\cite{EIoT2Talk13}.
+  \item Big Data Platforms for the Internet of Things~\cite{Ciobanu2014}.
+  \item Big Data and the Internet of Things~\cite{Shah2016}.
+  \item New Horizons for a Data-Driven Economy: A Roadmap for Usage and Exploitation of Big Data in Europe~\cite{Strohbach2016}.
+  \item Components and Services for IoT Platforms~\cite{CaSfIotPlatforms17}.
+  \item Enable things to talk, Springer~\cite{EIoT2Talk13}.
 \end{itemize}
 
 \bibliographystyle{alpha}
