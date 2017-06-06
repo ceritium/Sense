@@ -1,14 +1,12 @@
 \documentclass{pre-tfg}
-\usepackage{url}
-\usepackage{graphicx}
 
 % \showhelp  % comenta o borra para eliminar ayudas
 
 \title{Sense: Plataforma de alto rendimiento para captura y procesado de eventos IoT}
 \author{David Martín García}
 \advisorFirst{David Villa Alises}
-\advisorDepartment{Tecnologias y sistemas de información}
-\advisorSecond{Maria Jose Santofimia Romero}
+\advisorDepartment{Tecnologías y sistemas de información}
+\advisorSecond{Maréa José Santofimia Romero}
 \intensification{COMPUTACIÓN}
 \docdate{2015}{Noviembre}
 
@@ -54,7 +52,7 @@ sextillones de direcciones. Esto hace intuir que no es una simple moda o tendenc
 disipara en unos años, es una necesidad, y empresas como
 IBM\footnote{http://www.ibmbigdatahub.com/technology/internet-of-things}, Microsoft o
 Intel\footnote{https://software.intel.com/es-es/iot/microsoft-azure} apuestan por
-ello. Otras empresas como Ericson, Siemens Bosch tienen las tecnologias IoT como punta de
+ello. Otras empresas como Ericson, Siemens Bosch tienen las tecnologías IoT como punta de
 lanza en las presentaciones de sus tecnologías mas novedosas.
 
 Todo esto hace prever que no es solo un cambio de tendencia temporal, es uno de los
@@ -172,7 +170,9 @@ como punto principal para la búsqueda de este objetivo.
 También se desarrollara el aprovisionamiento de servidores así como la disposición de un
 entorno de desarrollo de fácil instalación para cualquier desarrollador.
 
-\includegraphics{grafico-arquitectura.png}
+\begin{center}
+  \includegraphics[width=.8\textwidth]{grafico-arquitectura.png}
+\end{center}
 
 \section{MÉTODO Y FASES DE TRABAJO}
 
@@ -199,16 +199,13 @@ Esta metodología nos permite adaptarnos mejor a los cambios en los requisitos o
 de trabajo, ya que por la propia naturaleza del proyecto, debe compaginarse con el resto de
 actividades académicas.
 
-\FIXME{TODO: DEFINIR HITOS A GRANDES RASGOS, es por hacerme una idea del tamaño Corregir
-  si o si.....}
-
 \begin{itemize}
-\item Hito 1 - Analisis
+\item Hito 1 - Análisis
   \begin{itemize}
-  \item
-  \item
+  \item Definición de la arquitectura del hub.
+  \item Análisis de los componentes.
   \item Realización de la documentación inicial y puesta a punto de los
-    diferentes servicios involucrados en el desarrollo
+    diferentes servicios involucrados en el desarrollo.
   \end{itemize}
 
 \item Hito 2
@@ -216,18 +213,17 @@ actividades académicas.
   \item Análisis de rendimiento de las diferentes propuestas, así como la
     obtención de una primera estadística de rendimiento esperado del proyecto en cada
     una de sus partes.
-  \item Codificación del núcleo de micro-servicios
-  \item Obtención de la primera versión funcional
+  \item Codificación del núcleo de micro-servicios.
+  \item Obtención de la primera versión funcional.
   \end{itemize}
 
 \item Hito 3
   \begin{itemize}
-  \item Desarrollo de la interfaz web
-  \item Desarrollo del backend de análisis de datos
+  \item Desarrollo de la interfaz web.
+  \item Desarrollo del backend de análisis de datos.
   \end{itemize}
 \end{itemize}
 
-\clearpage
 \section{MEDIOS QUE SE PRETENDEN UTILIZAR}
 
 \subsection{Medios Hardware}
@@ -302,7 +298,7 @@ disfrutaran los usuarios.
 \end{itemize}
 
 Además, se prevé utilizar las siguientes tecnologías en la capa de persistencia:
-
+%
 \begin{itemize}
 \item Base de datos: NoSQL con escalabilidad en horizontal así como un
   tiempo medio de respuesta bajo en las inserciones. Se prevé utilizar Cassandra.
@@ -312,10 +308,6 @@ Además, se prevé utilizar las siguientes tecnologías en la capa de persistenc
 
 \section{REFERENCIAS}
 
-\FIXME{Las referencias son MUY
-  importantes en el anteproyecto. Debes \textbf{citar} en la introducción al menos 6 o 7
-  artículos o revistas de investigación que traten el tema de IoT, manipulación de datos
-  masiva y otros aspectos esenciales del proyecto.}
 
 \begin{itemize}
   \item Big Data Platforms for the Internet of Things~\cite{Ciobanu2014}.
