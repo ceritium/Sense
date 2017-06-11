@@ -4,7 +4,8 @@ MAINTAINER David Martin <davidmartingarcia0@gmail.com>
 #Base dependencies
 RUN apt-get clean && apt-get update && apt-get install -y --force-yes --fix-missing \
   ssh \
-  build-essential
+  build-essential \
+  inotify-tools
 
 #Install Phoenix
 RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-1.2.4.ez --force
