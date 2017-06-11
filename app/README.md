@@ -1,11 +1,9 @@
 # Sense
 
-To start your Phoenix app:
+To start Sense:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+  * Create development database `docker-compose run web mix ecto.create` 
+  * Start all environment `docker-compose up`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
