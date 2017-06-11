@@ -1,6 +1,7 @@
 web:
   build: .
-  command: mix deps.get && npm install && node node_modules/brunch/bin/brunch build && mix phoenix.server
+  user: $UID
+  command: bash -c "mix deps.get && npm install && node node_modules/brunch/bin/brunch build && mix phoenix.server"
   environment:
     - PG_HOST=postgres
     - PG_USERNAME=postgres
