@@ -22,6 +22,7 @@ defmodule Sense.Api.V1.UserControllerTest do
         "first_name" => "some content",
         "last_name" => "some content",
         "username" => "some content",
+        "password" => "password"
       }
     }
     conn = post conn, api_v1_user_path(conn, :create), params
