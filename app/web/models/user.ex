@@ -1,4 +1,4 @@
-defmodule Sense.Users do
+defmodule Sense.User do
   use Sense.Web, :model
 
   schema "user" do
@@ -8,7 +8,7 @@ defmodule Sense.Users do
     field :username, :string
     timestamps()
   end
-
+ 
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """

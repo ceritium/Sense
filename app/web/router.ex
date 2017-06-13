@@ -19,8 +19,12 @@ defmodule Sense.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Sense do
-  #   pipe_through :api
-  # end
+  # API Scope
+  scope "/api", Sense.Api, as: :api do
+    pipe_through :api
+
+    scope "/v1", V1, as: :v1 do
+      resources "/user", UserController, only: [:delete, :update, :show, :create], singleton: true
+    end
+  end
 end
