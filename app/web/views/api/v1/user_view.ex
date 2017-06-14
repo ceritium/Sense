@@ -5,7 +5,6 @@ defmodule Sense.Api.V1.UserView do
     %{user: render_one(resource, __MODULE__, "resource.json", as: :resource)}
   end
 
- 
   def render("delete.json", %{id: id}) do
     %{code: 200, msg: gettext("Resource with deleted successfully"), id: id}
   end

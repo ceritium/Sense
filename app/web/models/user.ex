@@ -10,6 +10,9 @@ defmodule Sense.User do
     field :password, :string, virtual: true
     
     timestamps()
+
+    # Associations
+    has_many :devices, Sense.Device
   end
  
   @doc """
