@@ -9,9 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Sense.Repo
-alias Sense.{ User }
-
+alias Sense.{ User, Repo, Device }
 
 user_john = User.changeset(%User{}, %{
       email: "john@sense.local",
@@ -20,8 +18,7 @@ user_john = User.changeset(%User{}, %{
       username: "JohnDoEx",
       password: "foobarfoo"
       
-})
-|> Repo.insert!
+}) |> Repo.insert!
 
 random_user = User.changeset(%User{}, %{
       email: Faker.Internet.email,
@@ -29,6 +26,16 @@ random_user = User.changeset(%User{}, %{
       last_name: Faker.Name.last_name,
       username: Faker.Internet.user_name,
       password: "mypassword"
-})
-|> Repo.insert!
+}) |> Repo.insert!
       
+device_1 = Device.changeset(%Device{}, %{
+      name: "Example device 1",
+      description: "My first device",
+      user_id: user_john.id
+}) |> Repo.insert!
+
+device_2 = Device.changeset(%Device{}, %{
+      name: "My other device",
+      description: "Solar powered device",
+      user_id: user_john.id
+}) |> Repo.insert!
