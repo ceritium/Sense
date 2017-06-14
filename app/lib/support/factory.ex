@@ -8,6 +8,15 @@ defmodule Sense.Factory do
       first_name: "John",
       last_name: "Doe",
       username: "johndoe",
+      encrypted_password: Comeonin.Bcrypt.hashpwsalt("password")
+    }
+  end
+
+  def device_factory do
+    %Sense.Device{
+      name: "Example",
+      description: "Description",
+      user: build(:user)
     }
   end
 end

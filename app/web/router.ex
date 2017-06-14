@@ -25,6 +25,8 @@ defmodule Sense.Router do
 
     scope "/v1", V1, as: :v1 do
       resources "/user", UserController, only: [:delete, :update, :show, :create], singleton: true
+      resources "/devices", DeviceController, except: [:new, :edit]
+
     end
   end
 end

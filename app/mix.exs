@@ -19,7 +19,7 @@ defmodule Sense.Mixfile do
   def application do
     [mod: {Sense, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker]]
+                    :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -30,8 +30,8 @@ defmodule Sense.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [
-      #base deps from Phoenix project
+    [ 
+      # Base deps from Phoenix project
       {:phoenix, "~> 1.2.4"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.0"},
@@ -40,6 +40,10 @@ defmodule Sense.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
+
+      # Authentication
+      {:comeonin, "~> 3.0.2"},
+      {:guardian, "~> 0.14.4"},
       
       # Testing and seeding data
       {:ex_machina, "~> 2.0"},  
