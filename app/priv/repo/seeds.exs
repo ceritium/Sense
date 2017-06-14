@@ -39,3 +39,5 @@ device_2 = Device.changeset(%Device{}, %{
       description: "Solar powered device",
       user_id: user_john.id
 }) |> Repo.insert!
+
+Sense.Measure.create_database
