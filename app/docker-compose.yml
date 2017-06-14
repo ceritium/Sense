@@ -1,0 +1,20 @@
+web:
+  build: .
+  user: $UID
+  command: bash -c "mix deps.get && npm install && node node_modules/brunch/bin/brunch build && mix phoenix.server"
+  environment:
+    - PG_HOST=postgres
+    - PG_USERNAME=postgres
+  volumes:
+    - .:/app
+  ports:
+    - 4000:4000
+  links:
+    - postgres
+  stdin_open: true
+  tty: true
+
+postgres:
+  image: postgres:9.6.3
+  ports:
+    - 5432
