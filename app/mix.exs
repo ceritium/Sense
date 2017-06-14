@@ -19,7 +19,7 @@ defmodule Sense.Mixfile do
   def application do
     [mod: {Sense, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,7 @@ defmodule Sense.Mixfile do
       {:cowboy, "~> 1.0"},
       
       # Testing and seeding data
-      {:ex_machina, "~> 2.0", only: :test},  
+      {:ex_machina, "~> 2.0"},  
       {:faker, "~> 0.8", only: [:dev, :test]}
     ]
   end

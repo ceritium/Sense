@@ -1,7 +1,7 @@
-defmodule Sense.UsersTest do
+defmodule Sense.UserTest do
   use Sense.ModelCase
 
-  alias Sense.Users
+  alias Sense.User
 
   @valid_attrs %{
     email: "fake@email.local",
@@ -12,12 +12,12 @@ defmodule Sense.UsersTest do
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do
-    changeset = Users.changeset(%Users{}, @valid_attrs)
-    assert changeset.valid?
+    changeset = User.changeset(%User{}, @valid_attrs)
+    assert changeset.valid? 
   end
 
   test "changeset with invalid attributes" do
-    changeset = Users.changeset(%Users{}, @invalid_attrs)
+    changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
 end
