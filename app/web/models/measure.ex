@@ -15,17 +15,30 @@ defmodule Sense.Measure do
     |> select(["value"])
     |> where(%{metric_id: Integer.to_string(metric.id)})
     |> Sense.Influx.query()
-    
-    results[:results] |> List.first
+
+    data = results[:results] |> List.first
+    case data[:series] do
+      nil ->
+        []
+      _ -> 
+        data = data[:series] |> List.first
+      Enum.map(data[:values], fn([timestamp, value]) -> %{value: value, timestamp: timestamp} end)
+    end
   end
 
   def write_measure(metric, value) do
-    data = %Sense.Measure{}
-    data = %{data | fields: %{data.fields | value: value}}
-    data = %{data | tags: %{data.tags | metric_id: metric.id}}
+    case value do
+      nil ->
+        :error
+      _ ->
+        data = %Sense.Measure{} 
+        data = %{data | fields: %{data.fields | value: value}}
+        data = %{data | tags: %{data.tags | metric_id: metric.id}}
 
-    data
-    |> Sense.Influx.write(async: true)
+        data
+        |> Sense.Influx.write(async: true)
+        :ok
+    end
   end
 
   def delete_measures(metric) do
