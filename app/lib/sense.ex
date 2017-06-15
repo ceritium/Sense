@@ -14,6 +14,7 @@ defmodule Sense do
       supervisor(Sense.Endpoint, []),
       # Start your own worker by calling: Sense.Worker.start_link(arg1, arg2, arg3)
       # worker(Sense.Worker, [arg1, arg2, arg3]),
+      Sense.Influx.child_spec
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

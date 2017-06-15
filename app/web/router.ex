@@ -26,7 +26,10 @@ defmodule Sense.Router do
     scope "/v1", V1, as: :v1 do
       resources "/user", UserController, only: [:delete, :update, :show, :create], singleton: true
       resources "/devices", DeviceController, except: [:new, :edit] do
-        resources "/metrics", MetricController, except: [:new, :edit]
+        resources "/metrics", MetricController, except: [:new, :edit] do
+          resources "/measures", MeasureController, only: [:index, :create]
+          delete "/measures", MeasureController, :delete
+        end
       end
     end
   end
