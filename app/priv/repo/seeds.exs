@@ -40,4 +40,6 @@ device_2 = Device.changeset(%Device{}, %{
       user_id: user_john.id
 }) |> Repo.insert!
 
+
+Sense.Measure.delete_database
 Sense.Measure.create_database

@@ -10,12 +10,13 @@ defmodule Sense.Measure do
     field :value
   end
 
-
   def by_metric(metric) do
-    from(Sense.Measure)
+    results = from(Sense.Measure)
     |> select(["value"])
-    |> where(%{device_id: Integer.to_string(metric.id)})
+    |> where(%{metric_id: Integer.to_string(metric.id)})
     |> Sense.Influx.query()
+    
+    results[:results] |> List.first
   end
 
   def write_measure(metric, value) do
@@ -27,7 +28,20 @@ defmodule Sense.Measure do
     |> Sense.Influx.write(async: true)
   end
 
+  def delete_measures(metric) do
+    "DELETE FROM device_metrics WHERE metric_id = #{metric.id}"
+    |> Sense.Influx.execute(method: :post)
+
+    :ok
+  end
+
   def create_database do
+    "device_metrics"
+    |> Instream.Admin.Database.create()
+    |> Sense.Influx.execute()
+  end
+
+  def delete_database do
     "device_metrics"
     |> Instream.Admin.Database.create()
     |> Sense.Influx.execute()
