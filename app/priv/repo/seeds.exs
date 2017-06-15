@@ -9,7 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Sense.{ User, Repo, Device }
+alias Sense.{ User, Repo, Device, Metric, Measure }
 
 user_john = User.changeset(%User{}, %{
       email: "john@sense.local",
@@ -40,6 +40,43 @@ device_2 = Device.changeset(%Device{}, %{
       user_id: user_john.id
 }) |> Repo.insert!
 
+device_1_metric_1 = Metric.changeset(%Metric{}, %{
+      name: "Example",
+      description: "Description",
+      device_id: device_1.id
+}) |> Repo.insert!
+
+device_1_metric_2 = Metric.changeset(%Metric{}, %{
+      name: "Example",
+      description: "Description",
+      device_id: device_1.id
+}) |> Repo.insert!
+
+device_2_metric_1 = Metric.changeset(%Metric{}, %{
+      name: "Example",
+      description: "Description",
+      device_id: device_2.id
+}) |> Repo.insert!
 
 Sense.Measure.delete_database
 Sense.Measure.create_database
+
+Measure.write_measure(device_1_metric_1, 1)
+Measure.write_measure(device_1_metric_1, 2)
+Measure.write_measure(device_1_metric_1, 3)
+Measure.write_measure(device_1_metric_1, 5)
+Measure.write_measure(device_1_metric_1, 4)
+Measure.write_measure(device_1_metric_1, 3)
+Measure.write_measure(device_1_metric_1, 1)
+Measure.write_measure(device_1_metric_1, 3)
+Measure.write_measure(device_1_metric_2, 4)
+Measure.write_measure(device_1_metric_2, 5)
+Measure.write_measure(device_1_metric_2, 5)
+Measure.write_measure(device_1_metric_2, 6)
+Measure.write_measure(device_1_metric_2, 4)
+Measure.write_measure(device_2_metric_1, 6)
+Measure.write_measure(device_2_metric_1, 7)
+Measure.write_measure(device_2_metric_1, 8)
+Measure.write_measure(device_2_metric_1, 9)
+Measure.write_measure(device_2_metric_1, 10)
+

@@ -14,7 +14,7 @@ defmodule Sense.Metric do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :description])
+    |> cast(params, [:name, :description, :device_id])
     |> validate_required([:name, :description])
   end
 end
