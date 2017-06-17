@@ -24,6 +24,12 @@ defmodule Sense.User do
     |> validate_required([:email, :first_name, :last_name, :username])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
+
+  def registration_changeset(struct, params \\ %{}) do
+    struct
+    |> changeset(params)
+    |> cast(params, ~w(password)a, [])
+    |> validate_length(:password, min: 6, max: 100)
     |> generate_encrypted_password
   end
 
@@ -33,7 +39,6 @@ defmodule Sense.User do
       :first_name,
       :last_name,
       :username,
-      :password,
     ]
   end
 
