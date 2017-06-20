@@ -19,17 +19,27 @@ defmodule Sense.Router do
     plug Sense.CurrentUser
   end
 
+  pipeline :session_required do
+    plug Guardian.Plug.EnsureAuthenticated, handler: Sense.GuardianErrorHandler
+  end
+
   scope "/", Sense do
     pipe_through [:browser, :with_session]
 
     get "/", PageController, :index
-    resources "/users", UserController, only: [:show, :new, :create]
+    resources "/users", UserController, only: [:new, :create]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+  end
+
+  scope "/", Sense do
+    pipe_through [:browser, :with_session, :session_required]
+
+    resources "/users", UserController, only: [:show]
   end
 
   # API Scope
   scope "/api", Sense.Api, as: :api do
-    pipe_through :api
+    pipe_through [:api]
 
     scope "/v1", V1, as: :v1 do
       resources "/user", UserController, only: [:delete, :update, :show, :create], singleton: true

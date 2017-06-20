@@ -15,15 +15,16 @@ defmodule Sense.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset = %User{} |> User.registration_changeset(user_params)
+    changeset = %User{} |> User.changeset(user_params)
 
     case Repo.insert(changeset) do
       {:ok, user} ->
         conn
         |> Sense.Auth.login(user)
-        |> put_flash(:info, "#{user.name} created!")
+        |> put_flash(:info, "#{user.username} created!")
         |> redirect(to: user_path(conn, :show, user))
       {:error, changeset} ->
+        IO.inspect changeset
         render(conn, "new.html", changeset: changeset)
     end
   end

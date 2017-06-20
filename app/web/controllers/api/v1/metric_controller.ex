@@ -1,6 +1,6 @@
 defmodule Sense.Api.V1.MetricController do
   use Sense.Web, :controller
-  alias Sense.Metric
+  alias Sense.{Device, Metric}
 
   def index(conn, %{"device_id" => device_id}) do
     metrics = Repo.all(Metric)
@@ -8,7 +8,8 @@ defmodule Sense.Api.V1.MetricController do
   end
 
   def create(conn, %{"metric" => metric_params, "device_id" => device_id}) do
-    changeset = Metric.changeset(%Metric{}, metric_params)
+    device = Repo.get!(Device, device_id)
+    changeset = Metric.changeset(%Metric{device_id: device.id}, metric_params)
 
     case Repo.insert(changeset) do
       {:ok, metric} ->

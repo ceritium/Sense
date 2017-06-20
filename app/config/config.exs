@@ -35,7 +35,7 @@ config :guardian, Guardian,
   issuer: "Sense.#{Mix.env}",
   ttl: {30, :days},
   verify_issuer: true,
-  serializer: SimpleAuth.GuardianSerializer,
+  serializer: Sense.GuardianSerializer,
   secret_key: to_string(Mix.env) <> "SuperS3CR3tSeNS3ToK3n"
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -10,10 +10,21 @@
                               class: "form-control" %>
     <%= error_tag f, :email %>
   </div>
+  
   <div class="form-group">
-    <%= text_input f, :name, placeholder: "Name",
+    <%= text_input f, :first_name, placeholder: "First Name",
                              class: "form-control" %>
-    <%= error_tag f, :name %>
+    <%= error_tag f, :first_name %>
+  </div>
+  <div class="form-group">
+    <%= text_input f, :last_name, placeholder: "Last Name",
+                              class: "form-control" %>
+    <%= error_tag f, :last_name %>
+  </div>
+  <div class="form-group">
+    <%= text_input f, :username, placeholder: "Username",
+                              class: "form-control" %>
+    <%= error_tag f, :username %>
   </div>
   <div class="form-group">
     <%= password_input f, :password, placeholder: "Password",

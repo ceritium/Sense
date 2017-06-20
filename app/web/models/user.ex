@@ -21,28 +21,20 @@ defmodule Sense.User do
   def changeset(struct, params \\ %{}) do
     struct 
     |> cast(params, user_params())
-    |> validate_required([:email, :first_name, :last_name, :username])
+    |> validate_required(user_params())
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
-  end
-  
-  def registration_changeset(struct, params \\ %{}) do
-    struct
-    |> changeset(params)
-    |> cast(params, registration_params())
+    |> unique_constraint(:username)
     |> validate_length(:password, min: 6, max: 100)
     |> generate_encrypted_password
   end
-
-  defp registration_params do
-    [ :password ]
-  end
-  
+    
   defp user_params do
     [ :email,
       :first_name,
       :last_name,
-      :username ]
+      :username,
+      :password ]
   end
 
   defp generate_encrypted_password(current_changeset) do
