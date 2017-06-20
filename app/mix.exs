@@ -50,7 +50,7 @@ defmodule Sense.Mixfile do
       {:faker, "~> 0.8", only: [:dev, :test]},
 
       #Time Series database
-      { :instream, "~> 0.15" }
+      {:instream, "~> 0.15" }
     ]
   end
 
@@ -60,8 +60,9 @@ defmodule Sense.Mixfile do
   #     $ mix ecto.setup
   #
   # See the documentation for `Mix` for more info on aliases.
-  defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+  defp aliases do 
+    ["ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seeds"],
+     "ecto.seeds": ["run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
      "test": ["deps.get", "ecto.create --quiet", "ecto.migrate", "test"]]
   end

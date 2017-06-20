@@ -7,7 +7,8 @@ defmodule Sense.UserTest do
     email: "fake@email.local",
     first_name: "John",
     last_name: "Doe",
-    username: "johndoe"    
+    username: "johndoe",
+    password: "johndoe123"
   }
   @invalid_attrs %{}
 

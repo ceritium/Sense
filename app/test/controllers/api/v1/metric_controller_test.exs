@@ -4,7 +4,7 @@ defmodule Sense.Api.V1.MetricControllerTest do
   alias Sense.{Device, Metric}
   
   @valid_attrs %{description: "some content", name: "some content"}
-  @invalid_attrs %{}
+  @invalid_attrs %{description: ""}
 
   setup %{conn: conn} do
     metric = insert(:metric)
@@ -19,8 +19,7 @@ defmodule Sense.Api.V1.MetricControllerTest do
                                                   "name" => metric.name}]
   end
 
-  test "shows chosen resource", %{conn: conn, device: device} do
-    metric = Repo.insert! %Metric{}
+  test "shows chosen resource", %{conn: conn, device: device, metric: metric} do
     conn = get conn, api_v1_device_metric_path(conn, :show, device.id, metric)
     assert json_response(conn, 200)["data"] == %{"id" => metric.id,
       "name" => metric.name,
@@ -45,15 +44,13 @@ defmodule Sense.Api.V1.MetricControllerTest do
     assert json_response(conn, 422)["errors"] != %{}
   end
 
-  test "updates and renders chosen resource when data is valid", %{conn: conn, device: device} do
-    metric = Repo.insert! %Metric{}
+  test "updates and renders chosen resource when data is valid", %{conn: conn, device: device, metric: metric} do
     conn = put conn, api_v1_device_metric_path(conn, :update, device.id, metric), metric: @valid_attrs
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(Metric, @valid_attrs)
   end
 
-  test "does not update chosen resource and renders errors when data is invalid", %{conn: conn, device: device} do
-    metric = Repo.insert! %Metric{}
+  test "does not update chosen resource and renders errors when data is invalid", %{conn: conn, device: device, metric: metric} do
     conn = put conn, api_v1_device_metric_path(conn, :update, device.id, metric), metric: @invalid_attrs
     assert json_response(conn, 422)["errors"] != %{}
   end

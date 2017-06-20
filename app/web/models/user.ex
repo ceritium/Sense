@@ -19,22 +19,22 @@ defmodule Sense.User do
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
-    struct
+    struct 
     |> cast(params, user_params())
-    |> validate_required([:email, :first_name, :last_name, :username])
+    |> validate_required(user_params())
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
+    |> unique_constraint(:username)
+    |> validate_length(:password, min: 6, max: 100)
     |> generate_encrypted_password
   end
-
+    
   defp user_params do
-    [
-      :email,
+    [ :email,
       :first_name,
       :last_name,
       :username,
-      :password,
-    ]
+      :password ]
   end
 
   defp generate_encrypted_password(current_changeset) do
