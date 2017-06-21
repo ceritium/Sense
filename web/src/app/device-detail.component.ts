@@ -27,8 +27,8 @@ export class DeviceDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.deviceService.update(this.device)
-      .then(() => this.goBack());
+      this.deviceService.update(this.device)
+          .then(() => this.goBack());
   }
 
   goBack(): void {

@@ -9,7 +9,7 @@ import { Device } from './device';
 export class DeviceService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private devicesUrl = 'http://localhost:4000/api/v1/devices';  // URL to web api
+  private devicesUrl = 'http://localhost:4000/api/v1/devices';
 
   constructor(private http: Http) { }
 
@@ -48,7 +48,7 @@ export class DeviceService {
   update(device: Device): Promise<Device> {
     const url = `${this.devicesUrl}/${device.id}`;
     return this.http
-      .put(url, JSON.stringify(device), {headers: this.headers})
+      .post(url, JSON.stringify(device), {headers: this.headers})
       .toPromise()
       .then(() => device)
       .catch(this.handleError);

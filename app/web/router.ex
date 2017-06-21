@@ -11,7 +11,6 @@ defmodule Sense.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug Sense.CorsAllow
   end
 
   pipeline :with_session do

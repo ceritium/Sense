@@ -1,12 +1,12 @@
-<h3>Top Heroes</h3>
+<h3>Devices</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let device of devices"  [routerLink]="['/detail', device.id]"  class="col-1-4">
+  <a *ngFor="let device of devices"  [routerLink]="['/devices', device.id]"  class="col-1-4">
     <div class="module device">
       <h4>{{device.name}}</h4>
     </div>
   </a>
 </div>
-<device-search></device-search>
+
 
 
 <!--
