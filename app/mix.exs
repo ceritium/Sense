@@ -19,7 +19,7 @@ defmodule Sense.Mixfile do
   def application do
     [mod: {Sense, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker, :comeonin, :instream]]
+                    :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker, :comeonin, :instream, :corsica]]
   end
 
   # Specifies which paths to compile per environment.
@@ -50,7 +50,11 @@ defmodule Sense.Mixfile do
       {:faker, "~> 0.8", only: [:dev, :test]},
 
       #Time Series database
-      {:instream, "~> 0.15" }
+      {:instream, "~> 0.15" },
+
+      #CORS
+      {:plug, "~> 1.0"},
+      {:corsica, "~> 1.0"}
     ]
   end
 

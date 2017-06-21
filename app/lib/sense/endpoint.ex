@@ -34,9 +34,10 @@ defmodule Sense.Endpoint do
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
-    store: :cookie,
-    key: "_sense_key",
-    signing_salt: "6vcg/Rpn"
-
+  store: :cookie,
+  key: "_sense_key",
+  signing_salt: "6vcg/Rpn"
+  
+  plug Corsica, origins: "http://localhost:4200"
   plug Sense.Router
 end
