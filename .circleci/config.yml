@@ -7,16 +7,16 @@ jobs:
     environment:
       TEST_RESULTS: /tmp/test-results
     steps:
+      - setup_remote_docker:
+          reusable: true
+          exclusive: true
       - checkout
-      - setup_remote_docker
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: build docker images
           command: docker-compose build
       - run:
           name: download elixir deps
-          command: docker-compose run app mix deps.get
+          command: docker-compose up -d
       - run:
           name: Intialize DB
           command: docker-compose run app mix ecto.create
