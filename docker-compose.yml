@@ -7,7 +7,7 @@ app:
     - PG_HOST=postgres
     - PG_USERNAME=postgres
   volumes:
-    - ./app:/app
+    - ${PWD}/app:/app
   ports:
     - 4000:4000
   links:
@@ -23,7 +23,7 @@ web:
   environment:
     - API_HOST=app
   volumes:
-    - ./web:/app
+    - ${PWD}/web:/app
   ports:
     - 4200:4200
   links:
