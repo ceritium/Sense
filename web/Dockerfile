@@ -66,4 +66,5 @@ RUN mix local.hex --force
 RUN mix local.rebar --force
   
 RUN mkdir -p /app
+ADD . /app/app
 WORKDIR /app

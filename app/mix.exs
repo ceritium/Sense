@@ -24,6 +24,7 @@ defmodule Sense.Mixfile do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(:ci), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
   # Specifies your project dependencies.
@@ -47,7 +48,7 @@ defmodule Sense.Mixfile do
       
       # Testing and seeding data
       {:ex_machina, "~> 2.0"},  
-      {:faker, "~> 0.8", only: [:dev, :test]},
+      {:faker, "~> 0.8", only: [:dev, :test, :ci]},
 
       #Time Series database
       {:instream, "~> 0.15" },
