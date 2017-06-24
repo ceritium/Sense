@@ -1,0 +1,26 @@
+machine:
+  environment:
+    PATH: "$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+    MIX_ENV: ci
+
+dependencies:
+  cache_directories:
+    - ~/.asdf
+    - deps
+    - _build
+  pre:
+    - if ! asdf | grep version; then git clone https://github.com/asdf-vm/asdf.git ~/.asdf; fi
+    - asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git || true
+    - asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git || true
+    - asdf install erlang 19.3
+    - asdf install elixir 1.4.4 
+    - mix local.hex --force
+    - mix local.rebar --force
+  override:
+    - cd app && mix deps.get
+    - cd app && mix deps.compile
+
+test:
+  override:
+    - cd app && mix test
+

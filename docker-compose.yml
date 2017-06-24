@@ -13,7 +13,7 @@ services:
     ports:
       - 4000:4000
     user: $UID
-    command: bash -c "mix deps.get && mix ecto.migrate && mix phoenix.server"
+    command: bash -c "mix deps.get || mix ecto.migrate && mix phoenix.server"
     volumes:
       - ${PWD}/app:/app
     
@@ -24,7 +24,7 @@ services:
     build:
       context: ./web
     user: $UID
-    command: bash -c "npm install && npm run start"
+    command: bash -c "npm install || npm run start"
     environment:
       - API_HOST=app
     volumes:

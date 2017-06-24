@@ -47,7 +47,7 @@ defmodule Sense.Mixfile do
       
       # Testing and seeding data
       {:ex_machina, "~> 2.0"},  
-      {:faker, "~> 0.8", only: [:dev, :test]},
+      {:faker, "~> 0.8", only: [:dev, :test, :ci]},
 
       #Time Series database
       {:instream, "~> 0.15" },
