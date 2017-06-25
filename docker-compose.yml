@@ -1,0 +1,48 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./app
+    environment:
+      - INFLUXDB_HOST=influxdb
+      - PG_HOST=postgres
+      - PG_USERNAME=postgres
+    depends_on:
+      - postgres
+      - influxdb
+    ports:
+      - 4000:4000
+    user: $UID
+    command: bash -c "mix deps.get || mix ecto.migrate && mix phoenix.server"
+    volumes:
+      - ${PWD}/app:/app
+    
+    stdin_open: true
+    tty: true
+
+  web:
+    build:
+      context: ./web
+    user: $UID
+    command: bash -c "npm install || npm run start"
+    environment:
+      - API_HOST=app
+    volumes:
+      - ${PWD}/web:/app
+    ports:
+      - 4200:4200
+    depends_on:
+      - app
+    stdin_open: true
+    tty: true
+
+  postgres:
+    image: postgres:9.6.3
+    ports:
+      - 5432
+
+  influxdb:
+    image: influxdb:1.2.4
+    ports:
+      - 8086:8086
+      - 8083:8083
