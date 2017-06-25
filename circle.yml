@@ -31,7 +31,7 @@ test:
     - cd app && mix coveralls.html
   post:
     - mkdir -p $CIRCLE_ARTIFACTS/cover
-    - cd app && mv cover/* $CIRCLE_ARTIFACTS/cover
+    - cd app && mv cover/* $CIRCLE_ARTIFACTS
 
 deployment:
   production:
