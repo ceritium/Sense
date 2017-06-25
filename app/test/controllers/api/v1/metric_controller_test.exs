@@ -29,7 +29,8 @@ defmodule Sense.Api.V1.MetricControllerTest do
 
   test "renders page not found when id is nonexistent", %{conn: conn, device: device} do
     assert_error_sent 404, fn ->
-      get conn, api_v1_device_metric_path(conn, :show, -1, device.id)
+      conn = get conn, api_v1_device_metric_path(conn, :show, -1, -1)
+      assert json_response(conn, 404)
     end
   end
 
