@@ -36,9 +36,15 @@ test:
 deployment:
   production:
     branch: production
-    heroku:
-      appname: sense
+    commands:
+      - git remote add heroku git@heroku.com:sense.git
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git subtree push --prefix app heroku master
+      - heroku run --app sense "POOL_SIZE=2 mix ecto.migrate"
   staging:
     branch: master
-    heroku:
-      appname: sense-staging
+    commands:
+      - git remote add heroku git@heroku.com:sense-staging.git
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git subtree push --prefix app heroku master
+      - heroku run --app sense-staging  "POOL_SIZE=1 mix ecto.migrate"
