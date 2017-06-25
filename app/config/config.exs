@@ -24,7 +24,7 @@ config :logger, :console,
 
 config :sense, Sense.Influx,
   database:  "device_metrics",
-  host:      System.get_env("INFLUXDB_HOST"),
+  host:      System.get_env("INFLUXDB_HOST") || "localhost",
   http_opts: [ insecure: true ],
   pool:      [ max_overflow: 0, size: 1 ],
   port:      8086,
