@@ -17,10 +17,11 @@ dependencies:
     - asdf install elixir 1.4.4 
     - mix local.hex --force
     - mix local.rebar --force
+    - mkdir -p $(echo $CIRCLE_TEST_REPORTS)/reports
   post:
     - if [[ ! -d influxdb/bin ]]; then wget https://dl.influxdata.com/influxdb/releases/influxdb-$(echo $INFLUX_VERSION)_linux_amd64.tar.gz && tar -xf influxdb-$(echo $INFLUX_VERSION)_linux_amd64.tar.gz; fi
     - cd influx* && ./usr/bin/influxd: {background: true}
-    - sleep 10 && curl --retry 10 --retry-delay 5 -v http://127.0.0.1:8086/ping
+    - sleep 5 && curl --retry 10 --retry-delay 5 -v http://127.0.0.1:8086/ping
   override:
     - cd app && mix deps.get
     - cd app && mix deps.compile

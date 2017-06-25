@@ -49,7 +49,9 @@ defmodule Sense.Mixfile do
       # Testing and seeding data
       {:ex_machina, "~> 2.0"},  
       {:faker, "~> 0.8", only: [:dev, :test, :ci]},
-
+      {:excoveralls, "~> 0.6", only: [:test, :ci]},
+      {:junit_formatter, "~> 1.3", only: [:test, :ci]},
+      
       #Time Series database
       {:instream, "~> 0.15" },
 

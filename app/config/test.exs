@@ -17,3 +17,6 @@ config :sense, Sense.Repo,
   database: "sense_test",
   hostname: System.get_env("PG_HOST"),
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :comeonin,
+  bcrypt_log_rounds: 1
