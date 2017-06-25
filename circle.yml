@@ -42,7 +42,7 @@ deployment:
       - git subtree push --prefix app heroku master
       - heroku run --app sense "POOL_SIZE=2 mix ecto.migrate"
   staging:
-    branch: continous-deployment
+    branch: master
     commands:
       - git remote add heroku git@heroku.com:sense-staging.git
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
