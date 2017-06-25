@@ -17,3 +17,11 @@ config :sense, Sense.Repo,
   database: "sense_test",
   hostname: System.get_env("PG_HOST"),
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :comeonin,
+  bcrypt_log_rounds: 1
+
+config :junit_formatter,
+  report_file: "report_file_test.xml",
+  report_dir: Enum.join([System.get_env("CIRCLE_TEST_REPORTS") || "tmp" , "/reports"]),
+  print_report_file: true
