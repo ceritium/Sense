@@ -30,3 +30,12 @@ test:
   override:
     - cd app && mix test
 
+deployment:
+  production:
+    branch: production
+    heroku:
+      appname: sense
+  staging:
+    branch: master
+    heroku:
+      appname: sense-staging
