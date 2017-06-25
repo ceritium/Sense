@@ -17,7 +17,7 @@ dependencies:
     - asdf install elixir 1.4.4 
     - mix local.hex --force
     - mix local.rebar --force
-    - mkdir -p $(echo $CIRCLE_TEST_REPORTS)/reports
+    - mkdir -p $CIRCLE_TEST_REPORTS/reports
   post:
     - if [[ ! -d influxdb/bin ]]; then wget https://dl.influxdata.com/influxdb/releases/influxdb-$(echo $INFLUX_VERSION)_linux_amd64.tar.gz && tar -xf influxdb-$(echo $INFLUX_VERSION)_linux_amd64.tar.gz; fi
     - cd influx* && ./usr/bin/influxd: {background: true}
@@ -28,7 +28,10 @@ dependencies:
 
 test:
   override:
-    - cd app && mix test
+    - cd app && mix coveralls.html
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/cover
+    - cd app && mv cover/* $CIRCLE_ARTIFACTS/cover
 
 deployment:
   production:
