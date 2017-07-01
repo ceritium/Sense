@@ -11,7 +11,7 @@ config :sense,
 
 # Configures the endpoint
 config :sense, Sense.Endpoint,
-  url: [host: "localhost"],
+  http: [port: System.get_env("PORT") || 4000],
   secret_key_base: "PyTTLl4iRtRYSqupQFbuSxES8Tqfh2nt3emusA3Y3IMFzOgfPSNaGeksv+IgwRL4",
   render_errors: [view: Sense.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Sense.PubSub,
