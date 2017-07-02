@@ -1,0 +1,31 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{KGV{\etalchar{+}}13}
+
+\bibitem[CCDP14]{Ciobanu2014}
+Radu-Ioan Ciobanu, Valentin Cristea, Ciprian Dobre, and Florin Pop.
+\newblock {\em Big Data Platforms for the Internet of Things}, pages 3--34.
+\newblock Springer International Publishing, Cham, 2014.
+
+\bibitem[KGV{\etalchar{+}}13]{CaSfIotPlatforms17}
+Keramidas, Georgios, Voros, Nikolaos, Hübner, and Michael (Eds.).
+\newblock {\em Components and Services for IoT Platforms}, chapter Introduction
+  to the Internet of Things, pages 1--10.
+\newblock Springer Berlin Heidelberg, 2013.
+
+\bibitem[Muk13]{EIoT2Talk13}
+Subhas Chandra~(Ed.) Mukhopadhyay.
+\newblock {\em Enabling Things to Talk}, chapter Introduction to the Internet
+  of Things, pages 1--10.
+\newblock Springer Berlin Heidelberg, 2013.
+
+\bibitem[SDRL16]{Strohbach2016}
+Martin Strohbach, J{\"o}rg Daubert, Herman Ravkin, and Mario Lischka.
+\newblock {\em Big Data Storage}, pages 119--141.
+\newblock Springer International Publishing, Cham, 2016.
+
+\bibitem[Sha16]{Shah2016}
+Mohak Shah.
+\newblock {\em Big Data and the Internet of Things}, pages 207--237.
+\newblock Springer International Publishing, Cham, 2016.
+
+\end{thebibliography}
