@@ -3,7 +3,7 @@ defmodule Sense.Api.V1.MetricController do
   alias Sense.{Device, Metric}
 
   def index(conn, %{"device_id" => device_id}) do
-    metrics = Repo.all(Metric)
+    metrics = Metric |> where([m], m.device_id == ^device_id) |> Repo.all
     render(conn, "index.json", metrics: metrics)
   end
 
