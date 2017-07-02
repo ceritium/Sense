@@ -1,6 +1,6 @@
-export class Device {
+export class Metric {
     id: number;
     name: string;
     description: string;
-    user_id: number;
+    device_id: number;
 }

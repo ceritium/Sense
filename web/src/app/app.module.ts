@@ -10,7 +10,9 @@ import { DashboardComponent }   from './dashboard.component';
 import { DevicesComponent }      from './devices.component';
 import { DeviceDetailComponent }  from './device-detail.component';
 import { DeviceService }          from './device.service';
+import { MetricService }          from './metric.service';
 import { DeviceSearchComponent }  from './device-search.component';
+import { MetricComponent }      from './metric.component';
 
 @NgModule({
   imports: [
@@ -24,9 +26,10 @@ import { DeviceSearchComponent }  from './device-search.component';
     DashboardComponent,
     DeviceDetailComponent,
     DevicesComponent,
-    DeviceSearchComponent
+    DeviceSearchComponent,
+    MetricComponent
   ],
-  providers: [ DeviceService ],
+  providers: [ DeviceService, MetricService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

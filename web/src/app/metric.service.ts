@@ -3,29 +3,29 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Device } from './device';
+import { Metric } from './metric';
 
 @Injectable()
-export class DeviceService {
+export class MetricService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private devicesUrl = 'http://localhost:4000/api/v1/devices';
 
   constructor(private http: Http) { }
 
-  getDevices(): Promise<Device[]> {
-    return this.http.get(this.devicesUrl)
+  getMetrics(device_id: number): Promise<Metric[]> {
+    return this.http.get(`${this.devicesUrl}/${device_id}/metrics`)
                .toPromise()
-               .then(response => response.json().data as Device[])
+               .then(response => response.json().data as Metric[])
                .catch(this.handleError);
   }
 
 
-  getDevice(id: number): Promise<Device> {
-    const url = `${this.devicesUrl}/${id}`;
+  getMetric(device_id: number, id: number): Promise<Metric> {
+    const url = `${this.devicesUrl}/${device_id}/metrics/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Device)
+      .then(response => response.json().data as Metric)
       .catch(this.handleError);
   }
 
@@ -33,25 +33,25 @@ export class DeviceService {
     const url = `${this.devicesUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
-      .then(() => null)
+      .then(() => null) 
       .catch(this.handleError);
   }
 
-  create(device: Device): Promise<Device> {
+  create(metric: Metric): Promise<Metric> {
     return this.http
-      .post(this.devicesUrl, JSON.stringify({device: device}), {headers: this.headers})
+      .post( `${this.devicesUrl}/${metric.device_id}/metrics`, JSON.stringify({metric: metric}), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Device)
+      .then(res => res.json().data as Metric)
       .catch(this.handleError);
   }
 
-  update(device: Device): Promise<Device> {
-  var body:any={device: device};
-    const url = `${this.devicesUrl}/${device.id}`;
+  update(metric: Metric): Promise<Metric> {
+  var body:any={metric: metric};
+    const url =  `${this.devicesUrl}/${metric.device_id}/metrics/${metric.id}`;
     return this.http
       .put(url, JSON.stringify(body), {headers: this.headers})
       .toPromise()
-      .then(() => device)
+      .then(() => metric)
       .catch(this.handleError);
   }
 
@@ -60,3 +60,4 @@ export class DeviceService {
     return Promise.reject(error.message || error);
   }
 }
+
