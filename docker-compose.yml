@@ -1,5 +1,11 @@
 version: "3"
 services:
+  doc:
+    build:
+       context: ./doc
+    command: make clean && make
+    volumes:
+      - ${PWD}/doc:/doc
   app:
     build:
       context: ./app
