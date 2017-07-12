@@ -1,49 +1,139 @@
 \chapter{Objetivos}
 \label{chap:objetivos}
 
-\noindent
-Para este capítulo, la normativa indica:
+%\noindent
+%Para este capítulo, la normativa indica:
 
-«Concretar y exponer el problema a resolver describiendo el entorno de trabajo,
-la situación y detalladamente qué se pretende obtener. Limitaciones y
-condicionantes a considerar para la resolución del problema (lenguaje de
-construcción, equipo físico, equipo lógico de base y de apoyo, etc.). Si se
-considera necesario, esta sección puede titularse ``Objetivos e hipótesis de
-trabajo''. En este caso, se añadirán las hipótesis de trabajo que el alumno, con
-su TFG, pretende demostrar».
+%«Concretar y exponer el problema a resolver describiendo el entorno de trabajo,
+%la situación y detalladamente qué se pretende obtener. Limitaciones y
+%condicionantes a considerar para la resolución del problema (lenguaje de
+%construcción, equipo físico, equipo lógico de base y de apoyo, etc.). Si se
+%considera necesario, esta sección puede titularse ``Objetivos e hipótesis de
+%trabajo''. En este caso, se añadirán las hipótesis de trabajo que el alumno, con
+%su TFG, pretende demostrar».
 
 \section{Objetivo general}
 
-El hito final que se pretende lograr, destacando el problema específico que
-resuelve o la funcionalidad que aporta la aplicación o sistema desarrollado.
+Este proyecto tiene el objetivo de poner en marcha una aplicación web, para esto
+debemos llevar a cabo los principales procesos involucrados en la
+creación de cualquier servicio web, desde el análisis inicial hasta su puesta en
+marcha y conexión con el mundo, teniendo en cuenta el mantenimiento posterior a
+tal momento.
+
+Se busca desarrollar una plataforma de gestión de sensorización dentro del ámbito de IoT con un rendimiento
+por encima de todo lo actualmente visto, teniendo tasas de tiempos de respuesta
+cercanos a la milésima de segundo en los puntos vitales, además de aguantar un
+gran número de conexiones concurrentes, esto hace que se aproveche al máximo los recursos de
+la máquina huésped, además crearé un proyecto open-source y un entorno favorable para
+que se genere una comunidad entorno a este.
+
+Esta plataforma puede posicionarse como alternativa a otros servicios gratuitos,
+gracias al bajo coste derivado de su alto rendimiento. No existe algo similar en
+términos de simplicidad y rendimiento en este momento.
+
+%El hito final que se pretende lograr, destacando el problema específico que
+%resuelve o la funcionalidad que aporta la aplicación o sistema desarrollado.
 
 
 \section{Objetivos específicos}
 
-Los objetivos específicos son las partes independientes del proyecto que tienen
-valor por si mismas.
+Podemos destacar varios apartados, que serán piezas básicas para la realización
+de tal proyecto:
 
-Por ejemplo, si el objetivo general fuera destruir una flota enemiga, los
-objetivos específicos podrían ser: hundir el portaaviones, inutilizar las
-torretas de los destructores, eliminar los cazas enemigos, etc.
+\subsection{Análisis y selección del conjunto de elementos del
+proyecto:} Comparativa del rendimiento de los actuales frameworks web así como de la
+infraestructura necesaria para este proyecto. Dado que una de las máximas de
+este proyecto será un elevado rendimiento a un coste bajo, se seleccionará entre
+todos los candidatos el que mejor se adapte ante esta situación para cada una de
+las partes involucradas en este proyecto.
 
-Los objetivos específicos no son tareas; análisis, diseño, etc. no tienen valor
-intrínseco para el cliente, si por ejemplo el proyecto se cancela en la fase de
-diseño no se le entrega nada de valor al cliente, luego no se cubre ningún
-objetivo.
+\subsection{Identificación y análisis de los datos ligados al internet de las
+  cosas (IoT):} Identificar posibles estándares ligados a este concepto, además de desarrollar la
+arquitectura básica que tomarán los datos en nuestra aplicación. Se requerirá
+analizar plataformas existentes, así como indagar sobre posibles estándares a la
+hora de enviar información.
 
-No se deben confundir los objetivos del proyecto con los objetivos del
-alumno. Indicar como objetivo que el alumno va a aprender o a estudiar
-determinada disciplina o herramienta no aporta nada al cliente. Deben ser
-entregables que el cliente puede valorar y por los que estaría dispuesto
-a pagar. Resumiendo, son \textbf{objetivos}, no subjetivos.
+\subsection{Crear un entorno para desarrolladores:}
+Este entorno debe facilitar a cualquier desarrollador el poder aterrizar en el
+proyecto con la mínima dificultad posible, debe ser totalmente estable y
+totalmente aislado de la máquina del desarrollador, siendo este una réplica exacta del encontrado en los
+servidores al que acceden los usuarios. Con esto conseguimos poder generar un
+entorno limpio, con todos y cada uno de los elementos involucrados así como un
+conjunto de datos mínimo con el que poder empezar a trabajar. Como hito, un desarrollador
+debe poder empezar a trabajar en este proyecto en menos de un cuarto de hora.
 
-\subsection{Objetivo 1}
+\subsection{Desarrollo de punto de entrada de información:} Desarrollo de una
+\acs{API} \acs{REST} como punto de entrada y salida de información proveniente
+de sensores. Debe estar debidamente protegida para que usuarios no autorizados no
+puedan acceder a dichos recursos. Se debe maximizar el rendimiento de esta
+parte, dado que es crucial a la hora de evitar cuellos de botella y posibles
+problemas ante altas tasas de conexiones. 
 
-\subsection{Objetivo 2}
+\subsection{Desarrollo de la aplicación web:} Desarrollo de una aplicación web
+donde poder gestionar los datos recibidos por el usuario, tal aplicación deberá
+poder hacer búsquedas dentro de estos datos así como permitirnos un mínimo
+análisis.
 
-\subsection{Objetivo 3}
+\subsection{Despliegue y configuración de la infraestructura básica:} Desplegar
+la infraestructura necesaria para hacerlo accesible a cualquier usuario, desde
+el dominio hasta los servidores donde se alojara la aplicación. Se intentara
+hacerlo del modo más transparente, dejando la posibilidad de, en un futuro,
+poder mejorar la infraestructura en caso de ser necesario. 
 
+
+\subsection{Creación y gestión de la documentación:} Dado que esta aplicación
+será usada por personas externas al proyecto, debemos generar los documentos necesarios para informarles de cómo
+hacer uso de los distintos puntos de acceso a la aplicación. Esta documentación
+también incluye algún ejemplo con alguna plataforma hardware de
+sensorización.
+Por otro lado, deberemos disponer de una /acs{API} interna para el
+frontend, por lo que debemos tener información para sincronizar los cambios
+entre la aplicación y su interfaz web. Por otro lado, también será necesario
+documentar casos básicos dentro del lenguaje seleccionado, desde como crear
+cualquier tipo de elemento, hasta como generar un test automático para tal, se
+debe ilustrar con algún ejemplo interno y explicar cada una de las partes, dado
+que el desarrollador no tiene el deber de conocer el lenguaje delecionado.
+
+\subsection{Monitorización de la plataforma:} Tener conocimiento del estado de toda la
+plataforma en cada momento, así como recibir alertas en caso de fallo ó bajo
+rendimiento. Esto es importante, dado que debemos anticiparnos a posibles picos
+de tráfico además de validar la integridad de los mismos. Siendo una aplicación
+para terceros, la disponibilidad es clave. Si no obtenemos una disponibilidad
+mínima, los usuarios rechazaran nuestra plataforma.
+
+\subsection{Integración continua y despliegue automático:} Siempre que un
+desarrollador termine un trabajo, este se comprobará mediante una serie de
+tests, si todos estos tests son válidos y obtienen un resultado favorable, se
+llevará a cabo un proceso automático de despliegue a los servidores. Con esto
+conseguimos facilitar tal proceso, así como aportar un control de calidad previo
+a mover estos cambios a cualquier entorno.
+
+\subsection{Pruebas de estrés:} Generar un modelo de pruebas de estrés que nos
+permita evaluar el resultado final del rendimiento de la plataforma así como su
+estabilidad y la corrección de cada uno de los puntos.
+
+\subsection{Búsqueda de partners:} Busqueda de socios tecnológicos con los que
+probar la aplicación una vez éste en el mercado, permitiendo un posicionamiento
+más rápido así como una prueba inicial de las cualidades del servicio en un
+entorno real.
+
+%Los objetivos específicos son las partes independientes del proyecto que tienen
+%valor por si mismas.
+
+%Por ejemplo, si el objetivo general fuera destruir una flota enemiga, los
+%objetivos específicos podrían ser: hundir el portaaviones, inutilizar las
+%torretas de los destructores, eliminar los cazas enemigos, etc.
+
+%Los objetivos específicos no son tareas; análisis, diseño, etc. no tienen valor
+%intrínseco para el cliente, si por ejemplo el proyecto se cancela en la fase de
+%diseño no se le entrega nada de valor al cliente, luego no se cubre ningún
+%objetivo.
+
+%No se deben confundir los objetivos del proyecto con los objetivos del
+%alumno. Indicar como objetivo que el alumno va a aprender o a estudiar
+%determinada disciplina o herramienta no aporta nada al cliente. Deben ser
+%entregables que el cliente puede valorar y por los que estaría dispuesto
+%a pagar. Resumiendo, son \textbf{objetivos}, no subjetivos.
 
 % Local Variables:
 %  coding: utf-8
