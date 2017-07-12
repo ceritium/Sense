@@ -1,9 +1,10 @@
-commands:
+
+Sense                             
+                             
+#Basic commands to start this project:#
 `docker-compose run deps.get`
 `docker-compose run ecto.setup`
-`docker-compose up -d`
-
-
+`docker-compose up`
 
 #Docs#
 ##Generate docs##
