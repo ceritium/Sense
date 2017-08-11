@@ -1,4 +1,6 @@
 commands:
-`docker-compose run deps.get`
-`docker-compose run ecto.setup`
+`docker-compose run app mix deps.get`
+
+`docker-compose run app mix ecto.setup`
+
 `docker-compose up -d`
