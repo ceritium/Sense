@@ -23,8 +23,8 @@ export class DevicesComponent {
     name = name.trim();
     description = description.trim();
     if (!name || !description) { return; }
-    var new_device: Device = {id: 0, user_id: 1, name: name, description: description};
-    alert(new_device);
+    var new_device: Device = {id: 0, name: name, description: description, user_id: 1};
+
      this.deviceService.create(new_device)
       .then( () => this.goBack());
   }
