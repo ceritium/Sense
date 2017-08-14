@@ -1,0 +1,22 @@
+<div *ngIf="metric">
+  <h2>{{metric.name}} details!</h2>
+  <div>
+    <label>id: </label>{{metric.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="metric.name" placeholder="name" />
+  </div>
+  <div>
+    <label>description: </label>
+    <input [(ngModel)]="metric.description" placeholder="description" />
+   </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="destroy()">Destroy</button>
+  <h1> Metrics</h1>
+  <ul>
+    <li *ngFor="let measure of measures">
+      <measure [measure]="measure"></metric>
+    </li>
+  </ul>
+</div>
