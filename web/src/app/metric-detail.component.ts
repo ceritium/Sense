@@ -7,6 +7,7 @@ import { Metric }        from './metric';
 import { Measure }        from './measure';
 import { MetricService } from './metric.service';
 import { MeasureService } from './measure.service';
+import { MeasureComponent } from './measure.component';
 
 @Component({
   selector: 'metric-detail',
@@ -18,28 +19,28 @@ export class MetricDetailComponent implements OnInit {
   measures: Measure[];
   
   constructor(
-    private deviceService: DeviceService,
     private metricService: MetricService,
+    private measureService: MeasureService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) => this.deviceService.getDevice(+params['id']))
-      .subscribe(device => this.device = device);
+      .switchMap((params: Params) => this.metricService.getMetric(+params['device_id'], +params['id']))
+      .subscribe(metric => this.metric = metric);
     this.route.params
-      .switchMap((params: Params) => this.metricService.getMetrics(+params['id']))
-      .subscribe(metrics => this.metrics = metrics);    
+      .switchMap((params: Params) => this.measureService.getMeasures(+params['device_id'], +params['id']))
+      .subscribe(measures => this.measures = measures);    
   }
 
   save(): void {
-    this.deviceService.update(this.device)
+    this.metricService.update(this.metric)
       .then(() => this.goBack());
   }
 
   destroy(): void {
-    this.deviceService.delete(this.device.id)
+    this.metricService.delete(this.metric.id)
       .then(() => this.goBack());
   }
   

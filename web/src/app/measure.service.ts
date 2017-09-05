@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Metric } from './metric';
+import { Measure } from './measure';
 
 @Injectable()
 export class MeasureService {
@@ -13,45 +13,18 @@ export class MeasureService {
 
   constructor(private http: Http) { }
 
-  getMetrics(device_id: number): Promise<Metric[]> {
-    return this.http.get(`${this.devicesUrl}/${device_id}/metrics`)
+  getMeasures(device_id: number, metric_id: number): Promise<Measure[]> {
+    return this.http.get(`${this.devicesUrl}/${device_id}/metrics/${metric_id}/measures`)
                .toPromise()
-               .then(response => response.json().data as Metric[])
+               .then(response => response.json().data as Measure[])
                .catch(this.handleError);
   }
 
-
-  getMetric(device_id: number, id: number): Promise<Metric> {
-    const url = `${this.devicesUrl}/${device_id}/metrics/${id}`;
-    return this.http.get(url)
-      .toPromise()
-      .then(response => response.json().data as Metric)
-      .catch(this.handleError);
-  }
-
-  delete(id: number): Promise<void> {
-    const url = `${this.devicesUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
-      .toPromise()
-      .then(() => null) 
-      .catch(this.handleError);
-  }
-
-  create(metric: Metric): Promise<Metric> {
+  create(measure: Measure): Promise<Measure> {
     return this.http
-      .post( `${this.devicesUrl}/${metric.device_id}/metrics`, JSON.stringify({metric: metric}), {headers: this.headers})
+      .post( `${this.devicesUrl}/${measure.metric_id}/measures`, JSON.stringify({measure: measure}), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Metric)
-      .catch(this.handleError);
-  }
-
-  update(metric: Metric): Promise<Metric> {
-  var body:any={metric: metric};
-    const url =  `${this.devicesUrl}/${metric.device_id}/metrics/${metric.id}`;
-    return this.http
-      .put(url, JSON.stringify(body), {headers: this.headers})
-      .toPromise()
-      .then(() => metric)
+      .then(res => res.json().data as Measure)
       .catch(this.handleError);
   }
 

@@ -3,6 +3,7 @@ import { Component, OnInit, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
+import { Device }        from './device';
 import { Metric }        from './metric';
 import { MetricService } from './metric.service';
 
@@ -14,7 +15,7 @@ import { MetricService } from './metric.service';
 export class MetricComponent implements OnInit {
   @Input()
   metric: Metric;
-  
+    
   constructor(
     private metricService: MetricService,
     private route: ActivatedRoute,
