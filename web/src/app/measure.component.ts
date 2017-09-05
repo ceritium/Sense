@@ -2,6 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, Input }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 import { Metric }        from './metric';
 import { Measure }        from './measure';
