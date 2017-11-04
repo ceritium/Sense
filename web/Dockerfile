@@ -61,6 +61,9 @@ RUN set -ex \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
+#Cleaning
+RUN apt-get clean
+
 #Elixir deps
 RUN mix local.hex --force
 RUN mix local.rebar --force
