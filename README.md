@@ -1,6 +1,12 @@
-commands:
-`docker-compose run app mix deps.get`
+#Sense                             
+                             
+#Basic commands to start this project:#
+`docker-compose run deps.get`
+`docker-compose run ecto.setup`
+`docker-compose up`
 
-`docker-compose run app mix ecto.setup`
-
-`docker-compose up -d`
+#Docs#
+##Generate docs##
+`docker-compose run doc make`
+##Clean generated docs##
+`docker-compose run doc make clean`

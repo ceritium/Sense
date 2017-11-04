@@ -1,0 +1,174 @@
+\chapter{Método y fases de trabajo}
+
+Como paso previo a la realización del proyecto, es necesario escoger una
+metodologia de trabajo acorde, tanto al propio proyecto, como a la forma de
+trabajar con la que mas fácil sera llevar a cabo tales metas. A continuación
+explicare los principales factores que me han hecho escoger entre todas las
+opciones existentes, y por que se han desechado las otras opciones.
+
+Ademas, detallare todas y cada una de las fases por las que ha
+pasado el proyecto, cuales han sido sus requisitos, asi como una valoración de
+las principales dificultades y las soluciones aportadas en cada una de las fases.
+
+\section{Metodología de trabajo.}
+El proceso de elección de una metodología de trabajo para este proyecto tendrá
+un impacto importante en su realización, por ésta misma razón, se llevara a cabo un proceso
+de analisis y meditación sobre cual de las metodologias actuales nos permitira
+llevar a cabo mayor parte del proyecto con la mejor calidad final.
+
+En la actualidad existen diferentes paradigmas entorno a las metodologias de
+trabajo en grupos de trabajo ligados a la informatica, todas ellas tienen claras
+diferencias, y estas diferencias son cruciales para el desarrollo segun el tipo
+de equipo y d eproyecto.
+
+Como es obvio, necesitaremos un desarrollo iterativo, dado que no tenemos
+conocimiento del problema a tratar de forma total y del total de las partes a
+desarrollar, por tanto, dejaremos de lado modelos de desarrollo en cascada, dado
+que no podemos planificar la totalidad del proyecto y necesitaremos reaccionar
+ante cualquier cambio necesario con el minimo coste asociado.
+
+Por otro lado, este proyecto tiene un calendario ajustado, y del que no podemos
+extendernos mas, y dado que no tengo experiencia previa con aplicaciones de este
+tipo, he optado por una metodologia que me permita tener siempre un producto
+funcional desde etapas tempranas del desarrollo. De esta forma siempre podremos
+hacer frente a posibles desviaciones y cambios en el desarrollo y tener algo al
+final algo usable. Ademas, nos da la ventaja de conocer en que punto del
+desarrollo nos encontramos. dado que siempre tendremos claro que partes quedan
+por hacer, y cuales estan planificadas para futuras fases.
+
+Otro punto a tratar es, el riesgo al cambio. Como de costoso es realizar un
+cambio en la definición del proyecto. Al ser un proyecto con usuarios finales,
+siempre pueden surgir necesidades que no se han tenido en cuenta en el momento
+de la planificación inicial, con una metodologia acorde a este tipo de
+situaciones, podremos rehacer el flujo de trabajo de las siguientes semanas de
+una forma facil, y sobre todo, asequible, permitiendonos un tiempo de respuesta
+minimo.
+
+Y finalmente, se pretende crear un proyecto <<Open Source>> en el que la
+comunidad pueda participar y se pueda crear un desarrollo activo. Como parte no
+eludible de esta decisión, se requerira del desarrollo guiado por pruebas
+
+Tras todas estas reflexiones acerca de las necesidades de este proyecto,
+tengo totalmente claro la necesidad de una metodología agil de desarrollo.
+
+Como punto introductorio podemos hablar sobre las cualidades ofrecidas por el desarrollo agil, y como punto mas básico para
+conocer en que se basa, podemos hacer incapie en el conocido como <<Manifiesto
+Agil>>\cite{agilemanifesto2001}. Este manifiesto expone una forma de trabajar sencilla y orientada a las
+personas sobre los procesos y herramientas ligadas al desarrollo, es mas
+importante la actitud y la aptitud de cada desarrollador. Se valora tambien el hecho de que obtengamos como resultado, un software
+libre de errores, y que solucione las necesidades del cliente, sobre el hecho de
+generar documentación exhaustiva, dado que el proposito de tal desarrollo, no es
+la documentación, si no, el software. Se valora de forma positiva la colaboración
+con el cliente sobre un contrato donde se detalle el proyecto,donde se enumeran las diferentes formas de abordar los problemas
+y las metas, donde el cliente obtendra, como mayor recompensa, la posibilidad de
+responder ante un cambio no planificado, ya que no se sigue una planificación
+total del proyecto.\cite{Hunt2006}\cite{HAzzan2014}
+
+Se podria decir que, busca crear software, de calidad, con la colaboración de
+los implicados en tal desarrollo, con la seguridad de que si algo sale mal, se
+puede solucionar.
+
+Dentro del desarrollo agil, tenemos multitud de metodologias, pero destacan dos
+sobre el resto, tanto por su sencillez y lo común de su uso a lo largo de las
+empresas. Scrum y Kanban. Ambas dos se encuentran dentro de los paradigmas de programación conocidos
+como Extreme Programing o del Desarrolo software Lean.
+
+Ambas dos nos ofrecen un manejo general, por lo que, ademas de planificar el
+desarrollo del software, podemos tambien planificar otras cosas como: Puesta a
+punto de la infraestructura, gestión de las integraciónes, desarrollo de la
+aplicación web y creación del entorno de desarrollo\cite{AlZewairi2017}. Y tratan las tareas de forma ordenada segun las necesidades del momento.
+
+En este caso, he decidido usar Scrum como metodología de desarrollo, dado que
+nos permite organizar el desarrollo en pequeñas etapas, obteniendo al final de
+cada uno, un resultado tangible, que aporta algo al total del proyecto.
+Por otro lado, es bastante común en equipos de desarrollo ligado a tecnologias
+web, dado que estas siempre se encuentran en continuo cambio debido a su
+contacto con usuarios.
+
+Otra ventaja de usar esta metodologia de desarrollo son los hitos que se marcan
+al final de cada uno de los sprints, pudiendo hacer retrospectivas con los
+distintos integrantes del desarrollo. En el caso de este proyecto, los clientes
+como tal son ambos tutores, que podran hacer seguimiento de cada una de las
+entregas y pueden modificar las necesidades del producto, de acuerdo a su
+experiencia y su criterio, y aportando decisiones a lo largo del desarrollo del proyecto.
+
+A continuación, detallare los detalles sobre la metodología de trabajo que se establece en este proyecto:
+\begin{definitionlist}
+\item[Sprints de una semana:] Dado que el tiempo es poco, y el valor a entregar algo,
+se establecen sprints de una semana, para poder tener un seguimiento mas
+continuo del proyecto, y poder tener cada uno de los hitos de una forma mas
+uniforme en el tiempo.
+\item[Uso de control de versiones:] Se hará uso de Git como control de versiones
+  para este proyecto, por ser uno de los mas potentes, ademas de ser
+  multiplataforma, y estar integrado con diversos servicios web, como Github,
+  donde poder hacer seguimiento de los distintos desarrollos. 
+\item[Desarrollo guiado por tests:] Cada una de las funcionalidades, debera
+  venir con una pieza de código, donde se compruebe el correcto funcionamiento
+  de la entrega, garantizando que, en caso de una futura modificación, se
+  respete el correcto funcionamiento de los diferentes requisitos.
+\item[Integración continua:] Cada uno de los cambios se aislara en una rama del
+  desarrollo, mediante git, y deberá cumplir con los tests, tanto anteriores,
+  como los que aporte este nuevo desarrollo.
+\item[Despliegue automatico:] Como punto final tras acabar una tarea, se
+  desplegara automaticamente en el entorno que sea conveniente, de forma automatica.
+\item[Ciclo Red-Green-Refactor:] Seguiremos uno de los ciclos de desarrollo mas
+  comunes entre la comunidad de desarrolladores ligada al desarrollo guiado por
+  tests. Este ciclo consiste en: Pensar la funcionalidad a llevar a cabo, debe
+  ser autocontenida y lo mas pequeña posible, se escribiran los tests para ese
+  fragmento de código, deacuerdo a la especificación deseada, y tras realizar
+  estos tests, se intentara resolverlos, obteniendo de esta forma, el mínimo
+  código posible, y cumpliendo todas las especificaciónes designadas por los
+  tests. Tras esto, se refactorizara el código, para mejorar su calidad asi como
+  su legibilidad, y se repetira este proceso con una nueva funcionalidad.
+  Este ciclo se repetira de forma recurrente, pudiendo llegar a mas de 20 ciclos
+  por hora.
+\item[Maximización de la producción:] Se realizaran las tareas de acuerdo a la
+  prioridad estimada de cara a la finalicación del sprint. El objetivo real del
+  sprint es, terminar el mayor númeor de tareas, e integrarlas dentro de la
+  siguiente versión.
+\end{definitionlist}
+
+Las etapas que seguirá cada uno de las tareas se reflejan segun el siguiente
+diagrama:
+Inicio
+selección de la tarea, segun prioridad.
+Análisis y diseño
+Desarrollo de tests
+Codificación
+
+\begin{itemize}
+  
+\item Cada tarea debe tener, un titulo, una descripción detallada de que debe hacer,
+si tiene alguna dependencia con alguna tarea. (ver plantilla issues y meterla en
+anexos), y una prioridad en función de la complejidad de la tarea.
+
+\item Se iran tomando la tareas de forma ordenada, siempre intentando acabar la de
+mayor prioridad, ya que aporta mayor valor final al sprint.
+
+\item Tras seleccionar una tarea, seguiremos la metodologia de trabajo, haciendo uso
+de TDD y de los ciclos de Red-Green-Refactor.
+
+\item Ttras la codificación, se realizara una prueba externa, que validara el código,
+asi como sus tests, si esta prueba es satisfactoria, todos los cambios serán
+propagados a la rama <<master>> donde se aloja la ultima versión estable, si por
+el contrario, el resultado no es correcto, se procedera a subsanar los errores y
+a volver a realizar de nuevo los pasos de este punto, hasta que el resultado sea
+correcto.
+
+\item Tras integrar estos cambios en una nueva versión estable, se llevará a cabo el
+despliegue de esta nueva versión.
+
+\item Como resultado, obtendremos una nueva versión funcional, cuyo valor esta
+probado, y cumple con lo indicado por cada una de las tareas ya acabadas.
+\end{itemize}
+
+\section{Sprints del desarrollo.}
+\subsection{Sprint 0: Evaluación y elección de herramientas.}
+\subsection{Sprint 1: Definición del modelo de datos y sus interfaces}
+\subsection{Sprint 2: Creación del entorno para desarrolladores y del Producto
+  Minimo Viable.}
+\subsection{Sprint 3: Configuración de la integración Continua y Despliegue
+  Continuo.}
+\subsection{Sprint 4: Desarrollo de la interfaz de gestión.}
+\subsection{Sprint 5: Algoritmos de análisis de datos.}
+\subsection{Sprint 6: Gestion de integraciones con terceros.}
