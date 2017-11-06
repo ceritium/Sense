@@ -7,9 +7,6 @@ RUN apt-get clean && apt-get update && apt-get install -y --force-yes --fix-miss
   build-essential \
   inotify-tools
 
-#Install Phoenix
-RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-1.2.4.ez --force
-
 #Install nodejs
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
@@ -63,10 +60,6 @@ RUN set -ex \
 
 #Cleaning
 RUN apt-get clean
-
-#Elixir deps
-RUN mix local.hex --force
-RUN mix local.rebar --force
   
 RUN mkdir -p /app
 ADD . /app/app
