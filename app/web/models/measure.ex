@@ -26,7 +26,7 @@ defmodule Sense.Measure do
     end
   end
 
-  def write_measure(metric, value) do
+  def write_measure(metric, value, async \\ false) do
     case value do
       nil ->
         :error
@@ -36,7 +36,7 @@ defmodule Sense.Measure do
         data = %{data | tags: %{data.tags | metric_id: metric.id}}
 
         data
-        |> Sense.Influx.write(async: true)
+        |> Sense.Influx.write(async: async)
         :ok
     end
   end
@@ -56,7 +56,8 @@ defmodule Sense.Measure do
 
   def delete_database do
     "device_metrics"
-    |> Instream.Admin.Database.create()
+    |> Instream.Admin.Database.drop()
     |> Sense.Influx.execute()
   end
 end
+

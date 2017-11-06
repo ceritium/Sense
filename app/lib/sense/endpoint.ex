@@ -37,7 +37,6 @@ defmodule Sense.Endpoint do
   store: :cookie,
   key: "_sense_key",
   signing_salt: "6vcg/Rpn"
-  
-  plug Corsica, origins: "http://localhost:4200"
+  plug Corsica, origins: "*", allow_headers: ["accept", "content-type"]
   plug Sense.Router
 end

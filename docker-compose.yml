@@ -30,7 +30,7 @@ services:
     build:
       context: ./web
     user: $UID
-    command: bash -c "npm install || npm run start"
+    command: bash -c "npm install && npm run start"
     environment:
       - API_HOST=app
     volumes:
@@ -52,3 +52,10 @@ services:
     ports:
       - 8086:8086
       - 8083:8083
+  chronograf:
+    image: chronograf:latest
+    depends_on:
+      - influxdb
+    ports:
+      - 8888:8888
+      

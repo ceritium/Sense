@@ -29,32 +29,32 @@ random_user = User.changeset(%User{}, %{
 }) |> Repo.insert!
       
 device_1 = Device.changeset(%Device{}, %{
-      name: "Example device 1",
-      description: "My first device",
+      name: "Heater sensor",
+      description: "This sensor give info about heater status",
       user_id: user_john.id
 }) |> Repo.insert!
 
 device_2 = Device.changeset(%Device{}, %{
-      name: "My other device",
-      description: "Solar powered device",
+      name: "Garden sensor",
+      description: "Solar powered device that give some info about garden status",
       user_id: user_john.id
 }) |> Repo.insert!
 
 device_1_metric_1 = Metric.changeset(%Metric{}, %{
-      name: "Example",
-      description: "Description",
+      name: "Temperature",
+      description: "Water temperature",
       device_id: device_1.id
 }) |> Repo.insert!
 
 device_1_metric_2 = Metric.changeset(%Metric{}, %{
-      name: "Example",
-      description: "Description",
+      name: "Consumption",
+      description: "Watts consumed",
       device_id: device_1.id
 }) |> Repo.insert!
 
 device_2_metric_1 = Metric.changeset(%Metric{}, %{
-      name: "Example",
-      description: "Description",
+      name: "Humidity",
+      description: "Percentage of humidity",
       device_id: device_2.id
 }) |> Repo.insert!
 
