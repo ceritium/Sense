@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './dashboard.component';
 import { DevicesComponent }      from './devices.component';
+import { UserComponent }      from './user.component';
 import { DeviceDetailComponent }  from './device-detail.component';
 import { DeviceService }          from './device.service';
 import { MetricService }          from './metric.service';
@@ -33,7 +34,8 @@ import { MeasureComponent }      from './measure.component';
     DeviceSearchComponent,
     MetricComponent,
     MetricDetailComponent,
-    MeasureComponent
+    MeasureComponent,
+    UserComponent
   ],
     providers: [ DeviceService, MetricService, MeasureService, UserService ],
   bootstrap: [ AppComponent ]
