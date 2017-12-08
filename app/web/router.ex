@@ -42,7 +42,10 @@ defmodule Sense.Router do
     pipe_through [:api]
 
     scope "/v1", V1, as: :v1 do
-      resources "/user", UserController, only: [:delete, :update, :show, :create], singleton: true
+      resources "/users", UserController, only: [:create], singleton: true do
+        get "/current", UserController, :current_user, as: "current_user"
+        post "/authenticate", UserController, :authenticate, as: "authentication"
+      end
       resources "/devices", DeviceController, except: [:new, :edit] do
         resources "/metrics", MetricController, except: [:new, :edit] do
           resources "/measures", MeasureController, only: [:index, :create]

@@ -1,5 +1,7 @@
 defmodule Sense.Api.V1.UserController do
   use Sense.Web, :controller
+  plug :scrub_params, "user" when action in ~w(authenticate)
+  
   alias Sense.User
   import Sense.Factory
 
@@ -32,6 +34,19 @@ defmodule Sense.Api.V1.UserController do
     |> render("delete.json", %{id: id})
   end
 
+  def authenticate(conn, %{"user" => %{"email" => email, "password" => password}}) do
+
+    case Sense.Auth.user_by_email_and_pass(conn, email, password) do
+      {:ok, user} ->
+        conn
+        |> put_status(:ok)
+        |> render(Sense.Api.V1.UserView, "resource.json", resource: user)
+      {:error, _reason, conn} ->
+        conn
+        |> put_status(:unauthorized)
+    end
+  end
+  
   def create(conn, %{"user" => resource_params}) do
     changeset = User.changeset(%User{}, resource_params)
 

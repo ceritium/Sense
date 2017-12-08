@@ -12,6 +12,7 @@ import { DeviceDetailComponent }  from './device-detail.component';
 import { DeviceService }          from './device.service';
 import { MetricService }          from './metric.service';
 import { MeasureService }          from './measure.service';
+import { UserService }          from './user.service';
 import { DeviceSearchComponent }  from './device-search.component';
 import { MetricComponent }      from './metric.component';
 import { MetricDetailComponent }      from './metric-detail.component';
@@ -34,7 +35,7 @@ import { MeasureComponent }      from './measure.component';
     MetricDetailComponent,
     MeasureComponent
   ],
-  providers: [ DeviceService, MetricService, MeasureService ],
+    providers: [ DeviceService, MetricService, MeasureService, UserService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

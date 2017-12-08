@@ -1,7 +1,7 @@
 defmodule Sense.Api.V1.MetricControllerTest do
   use Sense.ConnCase
   import Sense.Factory
-  alias Sense.{Device, Metric}
+  alias Sense.{Metric}
   
   @valid_attrs %{description: "some content", name: "some content"}
   @invalid_attrs %{description: ""}
@@ -27,7 +27,7 @@ defmodule Sense.Api.V1.MetricControllerTest do
       "device_id" => metric.device_id}
   end
 
-  test "renders page not found when id is nonexistent", %{conn: conn, device: device} do
+  test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
       conn = get conn, api_v1_device_metric_path(conn, :show, -1, -1)
       assert json_response(conn, 404)

@@ -1,6 +1,5 @@
 defmodule Sense.MetricTest do
   use Sense.ModelCase
-  import Sense.Factory
   alias Sense.Metric
 
   @valid_attrs %{description: "some content", name: "some content"}
