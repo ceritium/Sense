@@ -1,5 +1,25 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-</nav>
+<mat-toolbar color="primary" class="main-toolbar">
+  <span><mat-icon>widgets</mat-icon></span>
+
+  <span>Sense IoT Hub</span>
+  <span class="fill-remaining-space"></span>
+  <button mat-button color="basic" routerLink="/dashboard" routerLinkActive="active">
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+  <button mat-button color="basic"> <!--[matMenuTriggerFor]="accounts">-->
+    <mat-icon>person</mat-icon>
+    Account
+  </button>
+  <!--
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item>Option 1</button>
+    <button mat-menu-item>Option 2</button>
+  </mat-menu>
+  <mat-menu #accounts="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  -->
+</mat-toolbar>
 <router-outlet></router-outlet>

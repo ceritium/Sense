@@ -1,14 +1,15 @@
-<h3>Devices</h3>
-<a New device [routerLink]="['/devices']"  class="col-1-4">
-    <div class="module device">
-      <h5> NEW DEVICE </h5>
-    </div>
-</a>
-<div class="grid grid-pad">
-  <a *ngFor="let device of devices"  [routerLink]="['/devices', device.id]"  class="col-1-4">
-    <div class="module device">
-      <h4>{{device.name}}</h4>
-    </div>
-  </a>
-</div>
+<div>
+  <mat-card>
+    <h3>Devices</h3>
+    <button mat-raised-button color="accent" [routerLink]="['/devices']">New device</button>
+    <button mat-raised-button *ngFor="let device of devices"  [routerLink]="['/devices', device.id]" color="primary">
+        {{device.name}}
+    </button>
+  </mat-card>
 
+  <span class="done">
+    <button mat-fab>
+      <mat-icon>check circle</mat-icon>
+    </button>
+  </span>
+</div>
