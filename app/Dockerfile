@@ -7,9 +7,6 @@ RUN apt-get clean && apt-get update && apt-get install -y --force-yes --fix-miss
   build-essential \
   inotify-tools
 
-#Install Phoenix
-RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-1.2.4.ez --force
-
 #Install nodejs
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
@@ -26,11 +23,11 @@ RUN set -ex \
     C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
     56730D5401028683275BD23C23EFEFE93C4CFFFE \
   ; do \
+    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"  || \
     gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
-    gpg --keyserver keyserver.pgp.com --recv-keys "$key" || \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
+    gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
   done
-
+  
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 8.0.0
 
@@ -63,6 +60,9 @@ RUN set -ex \
 
 #Cleaning
 RUN apt-get clean
+
+#Install Phoenix
+RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new-1.2.4.ez --force
 
 #Elixir deps
 RUN mix local.hex --force
