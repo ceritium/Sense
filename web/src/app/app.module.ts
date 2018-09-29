@@ -17,7 +17,7 @@ import { MetricComponent }      from './metric.component';
 import { MetricDetailComponent }      from './metric-detail.component';
 import { MeasureComponent }      from './measure.component';
 import { MaterialModule } from './material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -26,7 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpModule,
         AppRoutingModule,
         MaterialModule,
-        BrowserAnimationsModule
+        // BrowserAnimationsModule
     ],
     declarations: [
         AppComponent,

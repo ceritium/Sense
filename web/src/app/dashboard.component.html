@@ -3,7 +3,7 @@
     <h3>Devices</h3>
     <button mat-raised-button color="accent" [routerLink]="['/devices']">New device</button>
     <button mat-raised-button *ngFor="let device of devices"  [routerLink]="['/devices', device.id]" color="primary">
-        {{device.name}}
+      {{device.name}}
     </button>
   </mat-card>
 
