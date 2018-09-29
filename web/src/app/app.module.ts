@@ -16,7 +16,7 @@ import { DeviceSearchComponent }  from './device-search.component';
 import { MetricDetailComponent }      from './metric-detail.component';
 import { MeasureComponent }      from './measure.component';
 import { MaterialModule } from './material.module';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -25,7 +25,7 @@ import { MaterialModule } from './material.module';
         HttpModule,
         AppRoutingModule,
         MaterialModule,
-   //     BrowserAnimationsModule
+        BrowserAnimationsModule
     ],
     declarations: [
         AppComponent,

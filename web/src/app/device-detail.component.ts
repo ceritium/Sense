@@ -2,6 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
+import { MatSnackBar }            from '@angular/material';
 
 import { Device }        from './device';
 import { Metric }        from './metric';
@@ -21,7 +22,8 @@ export class DeviceDetailComponent implements OnInit {
     private deviceService: DeviceService,
     private metricService: MetricService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -33,14 +35,20 @@ export class DeviceDetailComponent implements OnInit {
       .subscribe(metrics => this.metrics = metrics);    
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, { duration: 2000 });
+  }
+  
   save(): void {
     this.deviceService.update(this.device)
-      .then(() => this.goBack());
+      .then(() =>  this.openSnackBar('Device saved', ''));
   }
 
   destroy(): void {
     this.deviceService.delete(this.device.id)
-      .then(() => this.goBack());
+      .then(() =>
+            this.openSnackBar('Metric destroyed', '') &&
+            this.goBack());
   }
   
   goBack(): void {

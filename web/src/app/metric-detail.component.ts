@@ -37,14 +37,13 @@ export class MetricDetailComponent implements OnInit {
       .subscribe(measures => this.measures = measures);    
   }
 
-  
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, { duration: 2000 });
   }
   
   save(): void {
     this.metricService.update(this.metric)
-      .then(() =>  this.openSnackBar('Metric destroyed', ''));
+      .then(() =>  this.openSnackBar('Metric saved', ''));
   }
 
   destroy(): void {
