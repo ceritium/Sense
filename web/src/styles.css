@@ -4,3 +4,11 @@ body {
   margin: 0px;
   font-family: Roboto, sans-serif;
 }
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-list a {
+  text-decoration: none;
+}

@@ -14,8 +14,8 @@ mat-toolbar-row {
 }
 
 .done {
-  position: fixed;
-  bottom: 20px;
+  position: relative;
+  bottom: 0px;
   right: 20px;
-  color: white;
+  float: right;
 }

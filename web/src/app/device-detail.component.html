@@ -1,28 +1,32 @@
 <div *ngIf="device">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ device.name }} details!</mat-card-title>
-      <mat-card-subtitle>id: {{ device.id }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <label>name: </label>
-      <input [(ngModel)]="device.name" placeholder="name" />
+  <mat-card>
+    <mat-card-title>Device details</mat-card-title>
+        
+    <mat-form-field class="row">
+      <input matInput [(ngModel)]="device.name" placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="device.description" placeholder="Description" />
+    </mat-form-field>
 
-      <label>description: </label>
-      <input [(ngModel)]="device.description" placeholder="description" />
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">Back</button>
+      <button mat-raised-button color="accent" (click)="save()">Save</button>
+      <button mat-raised-button color="warn" (click)="destroy()">Destroy</button>
+    </mat-card-actions>
 
+    <mat-card>
       <h1> Metrics</h1>
       <mat-list>
         <mat-list-item *ngFor="let metric of metrics">
-          <metric [metric]="metric"></metric>
+          <a mat-list-item [routerLink]="['/devices', metric.device_id, 'metrics', metric.id]" color="primary">
+            <mat-icon matListIcon>memory</mat-icon>
+            <h4 matLine>{{metric.name}}</h4>
+            
+            <p matLine class="demo-2"> {{metric.description}} </p>
+          </a>
         </mat-list-item>
       </mat-list>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="goBack()">Back</button>
-      <button mat-button (click)="save()">Save</button>
-      <button mat-button (click)="destroy()">Destroy</button>
-    </mat-card-actions>
-  </mat-card>
+    </mat-card>
+  </mat-card>  
 </div>

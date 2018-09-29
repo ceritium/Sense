@@ -13,7 +13,6 @@ import { DeviceService }          from './device.service';
 import { MetricService }          from './metric.service';
 import { MeasureService }          from './measure.service';
 import { DeviceSearchComponent }  from './device-search.component';
-import { MetricComponent }      from './metric.component';
 import { MetricDetailComponent }      from './metric-detail.component';
 import { MeasureComponent }      from './measure.component';
 import { MaterialModule } from './material.module';
@@ -26,7 +25,7 @@ import { MaterialModule } from './material.module';
         HttpModule,
         AppRoutingModule,
         MaterialModule,
-        // BrowserAnimationsModule
+   //     BrowserAnimationsModule
     ],
     declarations: [
         AppComponent,
@@ -34,7 +33,6 @@ import { MaterialModule } from './material.module';
         DeviceDetailComponent,
         DevicesComponent,
         DeviceSearchComponent,
-        MetricComponent,
         MetricDetailComponent,
         MeasureComponent
     ],

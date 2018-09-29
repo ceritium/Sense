@@ -7,7 +7,6 @@ import { Device }        from './device';
 import { Metric }        from './metric';
 import { DeviceService } from './device.service';
 import { MetricService } from './metric.service';
-import { MetricComponent } from './metric.component';
 
 @Component({
   selector: 'device-detail',

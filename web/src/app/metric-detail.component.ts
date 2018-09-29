@@ -2,12 +2,14 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
+import { MatSnackBar }            from '@angular/material';
 
 import { Metric }        from './metric';
 import { Measure }        from './measure';
 import { MetricService } from './metric.service';
 import { MeasureService } from './measure.service';
 import { MeasureComponent } from './measure.component';
+
 
 @Component({
   selector: 'metric-detail',
@@ -22,7 +24,8 @@ export class MetricDetailComponent implements OnInit {
     private metricService: MetricService,
     private measureService: MeasureService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -34,16 +37,24 @@ export class MetricDetailComponent implements OnInit {
       .subscribe(measures => this.measures = measures);    
   }
 
+  
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, { duration: 2000 });
+  }
+  
   save(): void {
     this.metricService.update(this.metric)
-      .then(() => this.goBack());
+      .then(() =>  this.openSnackBar('Metric destroyed', ''));
   }
 
   destroy(): void {
     this.metricService.delete(this.metric.id)
-      .then(() => this.goBack());
+      .then(
+        () =>
+          this.openSnackBar('Metric destroyed', '') &&
+          this.goBack());
   }
-  
+
   goBack(): void {
     this.location.back();
   }

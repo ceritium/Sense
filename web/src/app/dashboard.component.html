@@ -1,15 +1,18 @@
 <div>
   <mat-card>
-    <h3>Devices</h3>
-    <button mat-raised-button color="accent" [routerLink]="['/devices']">New device</button>
-    <button mat-raised-button *ngFor="let device of devices"  [routerLink]="['/devices', device.id]" color="primary">
-      {{device.name}}
-    </button>
+    <mat-card-title>Devices</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let device of devices">
+        <a mat-list-item [routerLink]="['/devices', device.id]" color="primary">
+          <mat-icon matListIcon>router</mat-icon>
+          <h4 matLine>{{device.name}}</h4>
+        </a>
+      </mat-list-item>
+    </mat-list>
+    <span class="done">
+      <button mat-fab [routerLink]="['/devices']" color="accent">
+        <mat-icon>add circle</mat-icon>
+      </button>
+    </span>
   </mat-card>
-
-  <span class="done">
-    <button mat-fab>
-      <mat-icon>check circle</mat-icon>
-    </button>
-  </span>
 </div>
