@@ -23,5 +23,5 @@ config :comeonin,
 
 config :junit_formatter,
   report_file: "report_file_test.xml",
-  report_dir: Enum.join([System.get_env("CIRCLE_TEST_REPORTS") || "tmp" , "/reports"]),
+  report_dir: System.get_env("CIRCLE_TEST_REPORTS") || nil,
   print_report_file: true

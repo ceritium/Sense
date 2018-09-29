@@ -19,8 +19,5 @@ export class UserComponent {
     private location: Location
   ) { }
 
-  login(user: string, password: string):void {
-    
-  }
 }
 

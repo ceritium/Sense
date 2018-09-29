@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-md-4" class="login">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sign In</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-show="loginError != null" class="alert alert-danger fade in">
+          {{loginError}}
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login($event)">
+          <div class="form-group">
+            <label>Email address</label>
+            <input formControlName="email" type="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input formControlName="password" type="password" placeholder="Password">
+          </div>
+          <div class="form-group" *ngIf="loginForm.hasError('email', 'email')">
+            <span>
+              Please enter the correct email, this email not valid.
+            </span>
+          </div>
+          <button type="submit" class="btn btn-sm btn-default">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>

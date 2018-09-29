@@ -24,7 +24,7 @@ defmodule Sense.Auth do
   def login_by_email_and_pass(conn, email, given_pass) do
     case user_by_email_and_pass(email, given_pass) do
       {:ok, user} ->
-        {:ok, login(conn, user)}
+        {:ok, login(conn, user), user: user}
       {:error, error_type} ->
         {:error, error_type}
     end

@@ -1,5 +1,6 @@
 import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { Observable } from "rxjs/Rx"
 
 import 'rxjs/add/operator/toPromise';
 
@@ -10,8 +11,8 @@ export class UserService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
   private usersUrl = 'http://localhost:4000/api/v1/users';
-  private currentUserUrl = '${usersUrl}/current';
-  private authenticateUserUrl = '${usersUrl}/authenticate';
+  private currentUserUrl = `${this.usersUrl}/current`;
+  private authenticateUserUrl = `${this.usersUrl}/authenticate`;
     
   constructor(private http: Http) { }
 
@@ -20,6 +21,16 @@ export class UserService {
       .toPromise()
       .then(response => response.json().data as User)
       .catch(this.handleError);
+  }
+
+  login(email, password): Promise<User> {
+    let body = {user: {email: email, password: password}}
+    console.log(body);
+    return this.http.post(this.authenticateUserUrl, JSON.stringify(body), {headers: this.headers})
+      .toPromise()
+      .then( res => res.json().data as User)
+      .catch(this.handleError);
+    
   }
 
   create(user: User): Promise<User> {
@@ -40,7 +51,7 @@ export class UserService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.info('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 }

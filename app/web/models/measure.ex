@@ -26,7 +26,7 @@ defmodule Sense.Measure do
     end
   end
 
-  def write_measure(metric, value, async \\ false) do
+  def write_measure(metric, value, async \\ false, timestamp \\ nil) do
     case value do
       nil ->
         :error
@@ -35,6 +35,10 @@ defmodule Sense.Measure do
         data = %{data | fields: %{data.fields | value: value}}
         data = %{data | tags: %{data.tags | metric_id: metric.id}}
 
+        if timestamp do
+          data = %{data | timestamp:  timestamp * 1000000000}
+        end
+        
         data
         |> Sense.Influx.write(async: async)
         :ok

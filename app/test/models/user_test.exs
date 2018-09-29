@@ -21,4 +21,5 @@ defmodule Sense.UserTest do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
+  
 end

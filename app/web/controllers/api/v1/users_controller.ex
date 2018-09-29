@@ -35,15 +35,15 @@ defmodule Sense.Api.V1.UserController do
   end
 
   def authenticate(conn, %{"user" => %{"email" => email, "password" => password}}) do
-
-    case Sense.Auth.user_by_email_and_pass(conn, email, password) do
+    case Sense.Auth.user_by_email_and_pass(email, password) do
       {:ok, user} ->
         conn
         |> put_status(:ok)
-        |> render(Sense.Api.V1.UserView, "resource.json", resource: user)
-      {:error, _reason, conn} ->
+        |> render("resource.json", resource: user)
+      {:error, _reason} ->
         conn
         |> put_status(:unauthorized)
+        |> render(Sense.Api.V1.SessionView, "unauthorized.json")
     end
   end
   
