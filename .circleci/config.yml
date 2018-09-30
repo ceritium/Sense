@@ -5,9 +5,9 @@ jobs:
       - image: elixir:1.4.4
         environment:
           - MIX_ENV=test
-          - RB_DB_PS=sense
-          - RB_DB_UR=sense
-          - RB_DB_HT=localhost
+          - PG_USERNAME=sense
+          - PG_PASSWORD=sense
+          - PG_HOST=localhost
       - image: postgres:9.6.3-alpine
         environment:
           - POSTGRES_USER=sense
