@@ -36,22 +36,22 @@ jobs:
       - run: cd app && mix deps.get && mix deps.compile
       - save_cache:
           key: v3-mix-build-cache-{{ .Branch }}-{{ checksum "app/mix.lock" }}
-          paths: "app/_build"
+          paths: "./app/_build"
       - save_cache:
           key: v3-mix-build-cache-{{ .Branch }}
-          paths: "app/_build"
+          paths: "./app/_build"
       - save_cache:
           key: v3-mix-build-bundle-cache
-          paths: "app/_build"
+          paths: "./app/_build"
       - save_cache:
           key: v3-mix-deps-cache-{{ .Branch }}-{{ checksum "app/mix.lock" }}
-          paths: "app/deps"
+          paths: "./app/deps"
       - save_cache:
           key: v3-mix-deps-cache-{{ .Branch }}
-          paths: "app/deps"
+          paths: "./app/deps"
       - save_cache:
           key: v3-mix-deps-bundle-cache
-          paths: "app/deps"
+          paths: "./app/deps"
       - run: cd app && mix test
       - store_test_results:
           path: "./app/tmp/reports"
