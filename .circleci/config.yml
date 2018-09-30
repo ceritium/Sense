@@ -8,6 +8,7 @@ jobs:
           - PG_USERNAME=sense
           - PG_PASSWORD=sense
           - PG_HOST=localhost
+          - INFLUXDB_HOST=localhost
       - image: influxdb:1.2.4
       - image: postgres:9.6.3-alpine
         environment:
