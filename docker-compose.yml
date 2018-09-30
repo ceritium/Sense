@@ -21,7 +21,7 @@ services:
     user: $UID
     command: bash -c "mix deps.get || mix ecto.migrate && mix phoenix.server"
     volumes:
-      - ${PWD}/app:/app
+      - ./app:/app
     
     stdin_open: true
     tty: true
@@ -34,7 +34,7 @@ services:
     environment:
       - API_HOST=app
     volumes:
-      - ${PWD}/web:/app
+      - ./web:/app
     ports:
       - 4200:4200
     depends_on:
