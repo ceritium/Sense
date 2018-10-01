@@ -1,7 +1,7 @@
 defmodule Sense.Factory do
   use ExMachina.Ecto, repo: Sense.Repo
   Faker.start
-  alias Sense.{ Device, User, Metric }
+  alias Sense.{ Device, User, Metric, Actuator }
 
   def user_factory do
     %User{
@@ -25,6 +25,16 @@ defmodule Sense.Factory do
     %Metric{
       name: "Example",
       description: "Description",
+      device: build(:device)
+    }
+  end
+
+  def actuator_factory do
+    %Actuator{
+      name: "Example",
+      description: "Description",
+      type: "button",
+      value: 1,
       device: build(:device)
     }
   end
