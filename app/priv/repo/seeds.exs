@@ -76,8 +76,8 @@ device_1_actuator_2 = Actuator.changeset(%Actuator{}, %{
 }) |> Repo.insert!
 
 device_2_actuator_1 = Actuator.changeset(%Actuator{}, %{
-      name: "Humidity",
-      description: "Percentage of humidity",
+      name: "Presure controller",
+      description: "value or desired presure",
       device_id: device_2.id,
       type: "value",
       value: 100

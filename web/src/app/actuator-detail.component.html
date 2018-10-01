@@ -1,0 +1,28 @@
+<div *ngIf="actuator">
+  <mat-card>
+    <mat-card-title>Actuator details</mat-card-title>
+        
+    <mat-form-field class="row">
+      <input matInput [(ngModel)]="actuator.name" placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="actuator.description" placeholder="Description" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Actuator type">
+        <mat-option *ngFor="let type of ['button', 'value']" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="actuator.value" placeholder="Value" />
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button (click)="goBack()">Back</button>
+      <button mat-raised-button color="accent" (click)="save()">Save</button>
+      <button mat-raised-button color="warn" (click)="destroy()">Destroy</button>
+    </mat-card-actions>
+ </mat-card> 
+</div>
