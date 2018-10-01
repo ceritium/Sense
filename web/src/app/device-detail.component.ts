@@ -47,7 +47,7 @@ export class DeviceDetailComponent implements OnInit {
   destroy(): void {
     this.deviceService.delete(this.device.id)
       .then(() =>
-            this.openSnackBar('Metric destroyed', '') &&
+            this.openSnackBar('Metric destroyed', '') ||
             this.goBack());
   }
   

@@ -19,7 +19,7 @@ import { MeasureComponent } from './measure.component';
 export class MetricDetailComponent implements OnInit {
   metric: Metric;
   measures: Measure[];
-  
+
   constructor(
     private metricService: MetricService,
     private measureService: MeasureService,
@@ -47,10 +47,10 @@ export class MetricDetailComponent implements OnInit {
   }
 
   destroy(): void {
-    this.metricService.delete(this.metric.id)
+    this.metricService.delete(this.metric.id, this.metric.device_id)
       .then(
         () =>
-          this.openSnackBar('Metric destroyed', '') &&
+          this.openSnackBar('Metric destroyed', '') ||
           this.goBack());
   }
 
