@@ -18,6 +18,9 @@
     <mat-card>
       <h1> Measures</h1>
       <mat-tab-group>
+        <mat-tab label="Measure chart">
+          <ngx-chartjs [data]="data" type="bar"></ngx-chartjs>
+        </mat-tab>
         <mat-tab label="Measures table">
           <mat-list>
             <mat-list-item *ngFor="let measure of measures; last as isLast">
@@ -28,9 +31,6 @@
               <p matLine class="demo-2"> {{measure.timestamp | date:'medium'}} </p>
             </mat-list-item>
           </mat-list>
-        </mat-tab>
-        <mat-tab label="Data graphic">
-          
         </mat-tab>
       </mat-tab-group>
     </mat-card>

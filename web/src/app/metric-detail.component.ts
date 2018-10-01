@@ -19,6 +19,7 @@ import { MeasureComponent } from './measure.component';
 export class MetricDetailComponent implements OnInit {
   metric: Metric;
   measures: Measure[];
+  public data: Array<any>;
 
   constructor(
     private metricService: MetricService,
@@ -34,7 +35,36 @@ export class MetricDetailComponent implements OnInit {
       .subscribe(metric => this.metric = metric);
     this.route.params
       .switchMap((params: Params) => this.measureService.getMeasures(+params['device_id'], +params['id']))
-      .subscribe(measures => this.measures = measures);    
+      .subscribe(measures => this.measures = measures);
+    this.data = [
+  {
+    "name": "Germany",
+    "series": [
+      {
+        "name": "2010",
+        "value": 7300000
+      },
+      {
+        "name": "2011",
+        "value": 8940000
+      }
+    ]
+  },
+​
+  {
+    "name": "USA",
+    "series": [
+      {
+        "name": "2010",
+        "value": 7870000
+      },
+      {
+        "name": "2011",
+        "value": 8270000
+      }
+    ]
+  }
+]
   }
 
   openSnackBar(message: string, action: string) {
