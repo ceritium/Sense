@@ -10,6 +10,9 @@ import { MetricService } from './metric.service';
 import { MeasureService } from './measure.service';
 import { MeasureComponent } from './measure.component';
 
+import {DataSource} from '@angular/cdk/collections';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'metric-detail',
@@ -19,7 +22,25 @@ import { MeasureComponent } from './measure.component';
 export class MetricDetailComponent implements OnInit {
   metric: Metric;
   measures: Measure[];
-  
+  metric_id: number;
+  device_id: number;
+  dataSource = {
+    "chart": {
+      "exportenabled": "1",
+      "theme": "fusion",
+      "rotatelabels": "1"
+    },
+    "data": [],
+    "categories": [{
+      "category": []
+    }],
+    "dataset": [{
+      "seriesName": "Measure value",
+      "renderAs": "line",
+      "data": []
+    }]
+  };
+
   constructor(
     private metricService: MetricService,
     private measureService: MeasureService,
@@ -34,13 +55,17 @@ export class MetricDetailComponent implements OnInit {
       .subscribe(metric => this.metric = metric);
     this.route.params
       .switchMap((params: Params) => this.measureService.getMeasures(+params['device_id'], +params['id']))
-      .subscribe(measures => this.measures = measures);    
+      .subscribe(measures => {
+        this.measures = measures
+        measures.map( m =>  this.dataSource["dataset"][0]["data"].push({"value": m.value}))
+        measures.map( m =>  this.dataSource["categories"][0]["category"].push({"label": m.timestamp.toString() | date:"short"}))
+      });
   }
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, { duration: 2000 });
   }
-  
+
   save(): void {
     this.metricService.update(this.metric)
       .then(() =>  this.openSnackBar('Metric saved', ''));

@@ -1,7 +1,7 @@
 <div *ngIf="metric">
   <mat-card>
     <mat-card-title>Metric details</mat-card-title>
-        
+
     <mat-form-field class="row">
       <input matInput [(ngModel)]="metric.name" placeholder="Name" />
     </mat-form-field>
@@ -17,16 +17,12 @@
 
     <mat-card>
       <h1> Measures</h1>
-      <mat-list>
-        <mat-list-item *ngFor="let measure of measures">
-          <a mat-list-item [routerLink]="['/devices', metric.device_id, 'metrics', metric.id]" color="primary">
-            <mat-icon matListIcon>memory</mat-icon>
-            <h4 matLine>{{measure.name}}</h4>
-            
-            <p matLine class="demo-2"> {{measure.value}} </p>
-          </a>
-        </mat-list-item>
-      </mat-list>
+      <fusioncharts
+        width="600"
+        height="400"
+        type="mscombi2d"
+        [dataSource]=dataSource>
+      </fusioncharts>
     </mat-card>
- </mat-card> 
+ </mat-card>
 </div>

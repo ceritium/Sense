@@ -33,4 +33,3 @@ export class MeasureService {
     return Promise.reject(error.message || error);
   }
 }
-

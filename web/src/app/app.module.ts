@@ -15,8 +15,16 @@ import { MeasureService }          from './measure.service';
 import { DeviceSearchComponent }  from './device-search.component';
 import { MetricDetailComponent }      from './metric-detail.component';
 import { MeasureComponent }      from './measure.component';
+
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FusionChartsModule } from 'angular-fusioncharts';
+import FusionCharts from 'fusioncharts/core';
+import MSCombi2D from 'fusioncharts/viz/mscombi2d';
+import FusionTheme from 'fusioncharts/themes/es/fusioncharts.theme.fusion'
+
+FusionChartsModule.fcRoot(FusionCharts, MSCombi2D, FusionTheme)
 
 @NgModule({
     imports: [
@@ -25,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpModule,
         AppRoutingModule,
         MaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        FusionChartsModule
     ],
     declarations: [
         AppComponent,
