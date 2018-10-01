@@ -25,7 +25,7 @@ defmodule Sense.Actuator do
   def validate_value_by_type(changeset, options \\ []) do
     value= get_field(changeset, :value)
     type = get_field(changeset, :type)
-    if type == "button" and value == 0 or value == 1 do
+    if type == "value" or type == "button" and (value == 0 or value == 1) do
       changeset
     else
       add_error(changeset, :value, "Invalid value for button, it should be 0 or 1")

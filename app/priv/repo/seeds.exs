@@ -9,7 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Sense.{ User, Repo, Device, Metric, Measure }
+alias Sense.{ User, Repo, Device, Metric, Measure, Actuator }
 
 user_john = User.changeset(%User{}, %{
       email: "john@sense.local",
@@ -56,6 +56,31 @@ device_2_metric_1 = Metric.changeset(%Metric{}, %{
       name: "Humidity",
       description: "Percentage of humidity",
       device_id: device_2.id
+}) |> Repo.insert!
+
+
+device_1_actuator_1 = Actuator.changeset(%Actuator{}, %{
+      name: "Light switch",
+      description: "Turn on/off the light",
+      device_id: device_1.id,
+      type: "button",
+      value: 0
+}) |> Repo.insert!
+
+device_1_actuator_2 = Actuator.changeset(%Actuator{}, %{
+      name: "Pool pump",
+      description: "Controls power for the pump",
+      device_id: device_1.id,
+      type: "button",
+      value: 1
+}) |> Repo.insert!
+
+device_2_actuator_1 = Actuator.changeset(%Actuator{}, %{
+      name: "Humidity",
+      description: "Percentage of humidity",
+      device_id: device_2.id,
+      type: "value",
+      value: 100
 }) |> Repo.insert!
 
 Sense.Measure.delete_database

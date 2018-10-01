@@ -4,10 +4,13 @@ defmodule Sense.ActuatorTest do
   alias Sense.Actuator
 
   @valid_attrs %{description: "some content", name: "some content", type: "button", value: 0}
+  @valid_value_attrs %{description: "some content", name: "some content", type: "value", value: 100}
   @invalid_attrs %{description: "some content", name: "some content", type: "button", value: 1000}
 
   test "changeset with valid attributes" do
     changeset = Actuator.changeset(%Actuator{}, @valid_attrs)
+    assert changeset.valid?
+    changeset = Actuator.changeset(%Actuator{}, @valid_value_attrs)
     assert changeset.valid?
   end
 
