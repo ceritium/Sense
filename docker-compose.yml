@@ -51,9 +51,17 @@ services:
     ports:
       - 8086:8086
       - 8083:8083
+
   chronograf:
     image: chronograf:latest
     depends_on:
       - influxdb
     ports:
       - 8888:8888
+  mqtt:
+    image: eclipse-mosquitto:1.4.12
+    ports:
+      - 1883:1833
+      - 9001:9001
+# 1883 for mqtt
+# 9001 for websocket
