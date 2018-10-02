@@ -59,7 +59,19 @@ services:
     ports:
       - 8888:8888
   mqtt:
-    image: eclipse-mosquitto:1.4.12
+    build:
+      context: ./infra
+      dockerfile: Dockerfile-mqtt
+    environment:
+      - MOSQUITTOCONF_auth_opt_backends=http
+      - MOSQUITTOCONF_auth_opt_superusers=admin
+      - MOSQUITTOCONF_auth_opt_http_ip=app
+      - MOSQUITTOCONF_auth_opt_http_getuser_uri=/mqtt/auth
+      - MOSQUITTOCONF_auth_opt_http_superuser_uri=/mqtt/superuser
+      - MOSQUITTOCONF_auth_opt_http_aclcheck_uri=/acl
+      - MOSQUITTOCONF_auth_opt_http_getuser_params=domain=DOMAIN,port=PORT
+      - MOSQUITTOCONF_auth_opt_http_superuser_params=domain=DOMAIN,port=PORT
+      - MOSQUITTOCONF_auth_opt_http_aclcheck_params=domain=DOMAIN,port=PORT
     ports:
       - 1883:1833
       - 9001:9001
