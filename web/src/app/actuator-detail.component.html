@@ -1,22 +1,24 @@
 <div *ngIf="actuator">
-  <mat-card>
+  <mat-card class="mat-card">
     <mat-card-title>Actuator details</mat-card-title>
         
     <mat-form-field class="row">
-      <input matInput [(ngModel)]="actuator.name" placeholder="Name" />
+      <input matInput [(ngModel)]="actuator.name" placeholder="Name">
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="actuator.description" placeholder="Description" />
+      <input matInput [(ngModel)]="actuator.description" placeholder="Description">
     </mat-form-field>
     <mat-form-field>
-      <mat-select placeholder="Actuator type">
-        <mat-option *ngFor="let type of ['button', 'value']" [value]="type">
-          {{type}}
-        </mat-option>
+      <mat-select [(value)]="actuator.type" placeholder="Actuator type">
+        <mat-option value="button">Button</mat-option>
+        <mat-option value="value">Value</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field>    
     <mat-form-field>
-      <input matInput [(ngModel)]="actuator.value" placeholder="Value" />
+      
+      <input *ngIf="actuator.type == 'value'" matInput [(ngModel)]="actuator.value" placeholder="Value">
+      <mat-slide-toggle *ngIf="actuator.type != 'value'" matInput [(ngModel)]="+ actuator.value" placeholder="Value"></mat-slide-toggle>
+      <input hidden matInput [(ngModel)]="actuator.value">
     </mat-form-field>
 
     <mat-card-actions>

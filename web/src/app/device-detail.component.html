@@ -33,7 +33,7 @@
       <mat-list>
         <mat-list-item *ngFor="let actuator of actuators">
           <a mat-list-item [routerLink]="['/devices', actuator.device_id, 'actuators', actuator.id]" color="primary">
-            <mat-icon matListIcon>memory</mat-icon>
+            <mat-icon matListIcon>power_settings_new</mat-icon>
             <h4 matLine>{{actuator.name}}</h4>
             
             <p matLine class="demo-2"> {{actuator.description}} </p>

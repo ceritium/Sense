@@ -14,14 +14,14 @@ import { ActuatorService } from './actuator.service';
 })
 export class ActuatorDetailComponent implements OnInit {
   actuator: Actuator;
-  
+
   constructor(
     private actuatorService: ActuatorService,
     private route: ActivatedRoute,
     private location: Location,
     public snackBar: MatSnackBar
   ) {}
-
+  
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.actuatorService.getActuator(+params['device_id'], +params['id']))

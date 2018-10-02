@@ -38,6 +38,7 @@ export class ActuatorService {
   }
 
   create(actuator: Actuator): Promise<Actuator> {
+    actuator.value = +actuator.value
     return this.http
       .post( `${this.devicesUrl}/${actuator.device_id}/actuators`, JSON.stringify({actuator: actuator}), {headers: this.headers})
       .toPromise()
@@ -46,7 +47,8 @@ export class ActuatorService {
   }
 
   update(actuator: Actuator): Promise<Actuator> {
-  var body:any={actuator: actuator};
+    actuator.value = +actuator.value
+    var body:any={actuator: actuator};
     const url =  `${this.devicesUrl}/${actuator.device_id}/actuators/${actuator.id}`;
     return this.http
       .put(url, JSON.stringify(body), {headers: this.headers})
