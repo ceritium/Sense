@@ -9,6 +9,8 @@ import {
   MatInputModule,
   MatListModule,
   MatSnackBarModule,
+  MatTableModule,
+  MatTabsModule,
   MatSelectModule,
   MatSlideToggleModule
 } from '@angular/material';
@@ -23,6 +25,8 @@ import {
     MatInputModule,
     MatListModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule
   ],
@@ -35,6 +39,8 @@ import {
     MatInputModule,
     MatListModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatTabsModule,
     MatSelectModule,
     MatSlideToggleModule
   ]

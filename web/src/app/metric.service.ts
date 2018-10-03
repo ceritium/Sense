@@ -29,8 +29,8 @@ export class MetricService {
       .catch(this.handleError);
   }
 
-  delete(id: number): Promise<void> {
-    const url = `${this.devicesUrl}/${id}`;
+  delete(id: number, device_id: number): Promise<void> {
+    const url = `${this.devicesUrl}/${device_id}/metrics/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null) 

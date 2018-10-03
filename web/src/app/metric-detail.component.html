@@ -1,7 +1,7 @@
 <div *ngIf="metric">
   <mat-card>
     <mat-card-title>Metric details</mat-card-title>
-        
+
     <mat-form-field class="row">
       <input matInput [(ngModel)]="metric.name" placeholder="Name" />
     </mat-form-field>
@@ -17,16 +17,22 @@
 
     <mat-card>
       <h1> Measures</h1>
-      <mat-list>
-        <mat-list-item *ngFor="let measure of measures">
-          <a mat-list-item [routerLink]="['/devices', metric.device_id, 'metrics', metric.id]" color="primary">
-            <mat-icon matListIcon>memory</mat-icon>
-            <h4 matLine>{{measure.name}}</h4>
-            
-            <p matLine class="demo-2"> {{measure.value}} </p>
-          </a>
-        </mat-list-item>
-      </mat-list>
+      <mat-tab-group>
+        <mat-tab label="Measure chart">
+
+        </mat-tab>
+        <mat-tab label="Measures table">
+          <mat-list>
+            <mat-list-item *ngFor="let measure of measures; last as isLast">
+              <mat-icon matListIcon>memory</mat-icon>
+              <h4 matLine>{{measure.name}}</h4>
+
+              <p matLine class="demo-2"> {{measure.value}} </p>
+              <p matLine class="demo-2"> {{measure.timestamp | date:'medium'}} </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+      </mat-tab-group>
     </mat-card>
- </mat-card> 
+  </mat-card>
 </div>
