@@ -62,18 +62,19 @@ services:
     build:
       context: ./infra
       dockerfile: Dockerfile-mqtt
+    command: "sh run.sh mosquitto"
     environment:
       - MOSQUITTOCONF_auth_opt_backends=http
       - MOSQUITTOCONF_auth_opt_superusers=admin
-      - MOSQUITTOCONF_auth_opt_http_ip=app
-      - MOSQUITTOCONF_auth_opt_http_getuser_uri=/mqtt/auth
+      - MOSQUITTOCONF_auth_opt_http_hostname=app
+      - MOSQUITTOCONF_auth_opt_http_port=4000
+      - MOSQUITTOCONF_auth_opt_http_getuser_uri=/mqtt/user
       - MOSQUITTOCONF_auth_opt_http_superuser_uri=/mqtt/superuser
-      - MOSQUITTOCONF_auth_opt_http_aclcheck_uri=/acl
-      - MOSQUITTOCONF_auth_opt_http_getuser_params=domain=DOMAIN,port=PORT
-      - MOSQUITTOCONF_auth_opt_http_superuser_params=domain=DOMAIN,port=PORT
-      - MOSQUITTOCONF_auth_opt_http_aclcheck_params=domain=DOMAIN,port=PORT
+      - MOSQUITTOCONF_auth_opt_http_aclcheck_uri=/mqtt/acl
     ports:
-      - 1883:1833
-      - 9001:9001
+      - 1883:1883
+      - 9883:9883
+    links:
+      - app
 # 1883 for mqtt
-# 9001 for websocket
+# 9883 for websocket
