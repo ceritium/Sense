@@ -23,10 +23,10 @@ defmodule Sense.Router do
     plug Guardian.Plug.EnsureAuthenticated, handler: Sense.GuardianErrorHandler
   end
 
-  scope "/mqtt", Sense, as: :mqtt do
-    post "/user", MqttAuthenticatorController, :user, as: :user
-    post "/superuser", MqttAuthenticatorController, :superuser, as: :superuser
-    post "/acl", MqttAuthenticatorController, :acl, as: :acl
+  scope "/mqtt", Sense do
+    post "/user", MqttAuthenticatorController, :user
+    post "/superuser", MqttAuthenticatorController, :superuser
+    post "/acl", MqttAuthenticatorController, :acl
   end
 
   scope "/", Sense do
