@@ -5,3 +5,6 @@ ExUnit.configure(exclude: [:skip])
 ExUnit.start
 
 Ecto.Adapters.SQL.Sandbox.mode(Sense.Repo, :manual)
+
+Sense.Measure.delete_database
+Sense.Measure.create_database
