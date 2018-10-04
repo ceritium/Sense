@@ -9,9 +9,13 @@ defmodule Sense.Auth do
   end
 
   def login_by_email_and_pass(conn, email, given_pass) do
-    user = Repo.get_by(User, email: email)
+    login_by_defined_parameters_and_pass(conn, %{ email: email }, given_pass)
+  end
+
+  def login_by_defined_parameters_and_pass(conn, parameters, given_pass) do
+    user = Repo.get_by(User, parameters)
     cond do
-      user && checkpw(given_pass, user.password_hash) ->
+      user && checkpw(given_pass, user.encrypted_password) ->
         {:ok, login(conn, user)}
       user ->
         {:error, :unauthorized, conn}

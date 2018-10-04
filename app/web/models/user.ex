@@ -8,18 +8,18 @@ defmodule Sense.User do
     field :username, :string
     field :encrypted_password, :string
     field :password, :string, virtual: true
-    
+
     timestamps()
 
     # Associations
     has_many :devices, Sense.Device
   end
- 
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
-    struct 
+    struct
     |> cast(params, user_params())
     |> validate_required(user_params())
     |> validate_format(:email, ~r/@/)
@@ -28,7 +28,12 @@ defmodule Sense.User do
     |> validate_length(:password, min: 6, max: 100)
     |> generate_encrypted_password
   end
-    
+
+  def encrypt_password(password) do
+    # Comeonin.Bcrypt.hashpwsalt(password)
+    password
+  end
+
   defp user_params do
     [ :email,
       :first_name,
@@ -40,7 +45,7 @@ defmodule Sense.User do
   defp generate_encrypted_password(current_changeset) do
     case current_changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
-        put_change(current_changeset, :encrypted_password, Comeonin.Bcrypt.hashpwsalt(password))
+        put_change(current_changeset, :encrypted_password, encrypt_password(password))
       _ ->
         current_changeset
     end
