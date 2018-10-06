@@ -27,6 +27,7 @@ jobs:
       - run:
           name: Install heroku cli
           command: curl https://cli-assets.heroku.com/install.sh | sh
+      - run: heroku --version
       - checkout
       - restore_cache:
           keys:
@@ -59,5 +60,11 @@ jobs:
       - save_cache:
           key: v1-mix-build-bundle-cache
           paths: "./app/_build"
+      - run:
+          name: Deploy
+          command: heroku container:push app
+      - run: heroku container:push web
+      - run: heroku container:push db
+      - run: heroku container:push mqtt
       - store_test_results:
           path: "./app/tmp/reports"
