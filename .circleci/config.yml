@@ -24,6 +24,9 @@ jobs:
             apt-get install -y build-essential libpq-dev nodejs locales nano
             echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
       - run: locale-gen
+      - run:
+          name: Install heroku cli
+          command: curl https://cli-assets.heroku.com/install.sh | sh
       - checkout
       - restore_cache:
           keys:
