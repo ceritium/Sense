@@ -20,7 +20,7 @@ defmodule Sense.Measure do
     case data[:series] do
       nil ->
         []
-      _ -> 
+      _ ->
         data = data[:series] |> List.first
       Enum.map(data[:values], fn([timestamp, value]) -> %{value: value, timestamp: timestamp} end)
     end
@@ -31,7 +31,7 @@ defmodule Sense.Measure do
       nil ->
         :error
       _ ->
-        data = %Sense.Measure{} 
+        data = %Sense.Measure{}
         data = %{data | fields: %{data.fields | value: value}}
         data = %{data | tags: %{data.tags | metric_id: metric.id}}
 
@@ -60,4 +60,3 @@ defmodule Sense.Measure do
     |> Sense.Influx.execute()
   end
 end
-

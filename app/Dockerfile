@@ -1,4 +1,4 @@
-FROM elixir:1.4.4
+FROM elixir:1.7.3
 MAINTAINER David Martin <davidmartingarcia0@gmail.com>
 
 #Base dependencies
@@ -27,7 +27,7 @@ RUN set -ex \
     gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
     gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
   done
-  
+
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 8.0.0
 
@@ -67,7 +67,7 @@ RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/
 #Elixir deps
 RUN mix local.hex --force
 RUN mix local.rebar --force
-  
+
 RUN mkdir -p /app
 ADD . /app/app
 WORKDIR /app

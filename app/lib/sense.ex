@@ -21,6 +21,15 @@ defmodule Sense do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Sense.Supervisor]
     Supervisor.start_link(children, opts)
+
+    try do
+      Tortoise.Supervisor.start_child(
+        client_id: "my_client_id", user_name: "JohnDoEx", password: "foobarfoo",
+        handler: {Tortoise.Handler.SenseMQTT, []},
+        server: {Tortoise.Transport.Tcp, host: 'mqtt', port: 1883},
+        subscriptions: [{"#", 0}])
+    after
+    end
   end
 
   # Tell Phoenix to update the endpoint configuration
