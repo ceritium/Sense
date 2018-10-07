@@ -17,7 +17,7 @@ defmodule Sense.MqttAuthenticatorController do
 
   def superuser(conn, %{ "username" => user }) do
     case user do
-      "S4lT3dPassW0RD!" ->
+      "JohnDoEx" ->
         conn
         |> put_status(:ok)
         |> text("OK")
@@ -30,6 +30,7 @@ defmodule Sense.MqttAuthenticatorController do
 
   def acl(conn, params) do
     # TODO: Perform topic and acc checks
+    IO.inspect params
     conn
     |> put_status(:ok)
     |> text("OK #{inspect params}")

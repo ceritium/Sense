@@ -3,7 +3,7 @@ defmodule Sense.MqttAuthenticatorControllerTest do
   import Sense.Factory
 
   @auth_users_attrs %{ username: "num0ne", password: "goodPassw0rd", clientid: "1", topic: "", acc: "" }
-  @auth_superusers_attrs %{ username: "S4lT3dPassW0RD!", password: "", clientid: "1", topic: "", acc: "" }
+  @auth_superusers_attrs %{ username: "JohnDoEx", password: "", clientid: "1", topic: "", acc: "" }
 
   describe "MqttAuthenticatorController#user" do
     test "return 200 for an authorized", %{conn: conn} do

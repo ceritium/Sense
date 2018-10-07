@@ -39,4 +39,5 @@ config :guardian, Guardian,
   secret_key: to_string(Mix.env) <> "SuperS3CR3tSeNS3ToK3n"
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
+
 import_config "#{Mix.env}.exs"

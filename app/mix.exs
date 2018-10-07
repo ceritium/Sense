@@ -24,7 +24,7 @@ defmodule Sense.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Sense, []},
-     applications: [:corsica, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:tortoise, :corsica, :phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex, :ex_machina, :logger, :faker, :comeonin, :instream]]
   end
 
@@ -37,7 +37,7 @@ defmodule Sense.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [ 
+    [
       # Base deps from Phoenix project
       {:phoenix, "~> 1.2.4"},
       {:phoenix_pubsub, "~> 1.0"},
@@ -51,19 +51,22 @@ defmodule Sense.Mixfile do
       # Authentication
       {:comeonin, "~> 3.0.2"},
       {:guardian, "~> 0.14.4"},
-      
+
       # Testing and seeding data
-      {:ex_machina, "~> 2.0"},  
+      {:ex_machina, "~> 2.0"},
       {:faker, "~> 0.8"},
       {:excoveralls, "~> 0.6", only: [:test, :ci]},
       {:junit_formatter, "~> 1.3", only: [:test, :ci]},
-      
+
       #Time Series database
       {:instream, "~> 0.15" },
 
       #CORS
       {:plug, "~> 1.0"},
-      {:corsica, "~> 1.0"}
+      {:corsica, "~> 1.0"},
+
+      #MQTT
+      {:tortoise, "~> 0.9.2"}
     ]
   end
 
@@ -73,7 +76,7 @@ defmodule Sense.Mixfile do
   #     $ mix ecto.setup
   #
   # See the documentation for `Mix` for more info on aliases.
-  defp aliases do 
+  defp aliases do
     ["ecto.setup": ["ecto.drop", "ecto.create", "ecto.migrate", "ecto.seeds"],
      "ecto.seeds": ["run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
