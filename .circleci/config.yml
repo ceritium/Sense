@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: elixir:1.4.4
+      - image: elixir:1.7.3
         environment:
           - MIX_ENV=test
           - PG_USERNAME=sense
@@ -12,7 +12,7 @@ jobs:
       - image: influxdb:1.2.4
       - image: postgres:9.6.3-alpine
         environment:
-          - POSTGRES_USER=sense 
+          - POSTGRES_USER=sense
           - POSTGRES_PASSWORD=sense
           - POSTGRES_DB=sense_test
     steps:
@@ -35,7 +35,7 @@ jobs:
             - v1-mix-deps-cache-{{ .Branch }}-{{ checksum "app/mix.lock" }}
             - v1-mix-deps-cache-{{ .Branch }}
             - v1-mix-deps-cache
-      - run: mix local.hex --force && mix local.rebar --force 
+      - run: mix local.hex --force && mix local.rebar --force
       - run: cd app && mix deps.get
       - save_cache:
           key: v1-mix-deps-cache-{{ .Branch }}-{{ checksum "app/mix.lock" }}
