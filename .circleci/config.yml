@@ -46,7 +46,6 @@ jobs:
       - save_cache:
           key: v1-mix-deps-bundle-cache
           paths: "./app/deps"
-      - run: cd app && mix test || true
       - run: cd app && mix test
       - save_cache:
           key: v1-mix-build-cache-{{ .Branch }}-{{ checksum "app/mix.lock" }}
