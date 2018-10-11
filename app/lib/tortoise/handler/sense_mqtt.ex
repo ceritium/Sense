@@ -35,8 +35,6 @@ defmodule Tortoise.Handler.SenseMQTT do
   end
 
   def handle_message([username, device_name, "actuator", actuator_name], payload, state) do
-    IO.puts "###########"
-    IO.inspect state
     {:ok, device} = check_and_autogenerate_relationships(username, device_name)
     value = parse_payload(payload)
 
