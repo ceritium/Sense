@@ -9,7 +9,9 @@ jobs:
           - PG_PASSWORD=sense
           - PG_HOST=localhost
           - INFLUXDB_HOST=localhost
+          - MQTT_HOST=localhost
       - image: influxdb:1.2.4
+      - image: eclipse-mosquitto:latest
       - image: postgres:9.6.3-alpine
         environment:
           - POSTGRES_USER=sense

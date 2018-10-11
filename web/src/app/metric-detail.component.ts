@@ -70,7 +70,7 @@ export class MetricDetailComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, { duration: 2000 });
   }
-  
+
   save(): void {
     this.metricService.update(this.metric)
       .then(() =>  this.openSnackBar('Metric saved', ''));
