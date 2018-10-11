@@ -2,4 +2,13 @@ mat-card {
   max-width: 80%;
   margin: 2em auto;
   text-align: center;
+  margin-bottom: 50px;
+}
+
+.done {
+  position: relative;
+  bottom: 0px;
+  right: 20px;
+  float: right;
+  z-index: 100;
 }

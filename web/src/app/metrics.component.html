@@ -1,0 +1,9 @@
+<h2>New Metric</h2>
+
+<div>
+  <label>Metric name:</label> <input #metricName />
+  <label>Metric description:</label> <input #metricDescription />
+  <button (click)="add(metricName.value, metricDescription.value); metricName.value=''; metricDescription.value=''">
+    Add
+  </button>
+</div>

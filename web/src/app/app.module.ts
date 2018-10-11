@@ -16,8 +16,11 @@ import { MeasureService }          from './measure.service';
 import { DeviceSearchComponent }  from './device-search.component';
 import { ActuatorDetailComponent }      from './actuator-detail.component';
 import { MetricDetailComponent }      from './metric-detail.component';
+import { ActuatorsComponent }      from './actuators.component';
+import { MetricsComponent }      from './metrics.component';
 import { MeasureComponent }      from './measure.component';
 import { MaterialModule } from './material.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -32,10 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     DashboardComponent,
+    ActuatorsComponent,
     ActuatorDetailComponent,
     DeviceDetailComponent,
     DevicesComponent,
     DeviceSearchComponent,
+    MetricsComponent,
     MetricDetailComponent,
     MeasureComponent
   ],
