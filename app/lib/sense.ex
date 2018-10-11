@@ -26,7 +26,7 @@ defmodule Sense do
       Tortoise.Supervisor.start_child(
         client_id: "my_client_id", user_name: "JohnDoEx", password: "foobarfoo",
         handler: {Tortoise.Handler.SenseMQTT, []},
-        server: {Tortoise.Transport.Tcp, host: 'mqtt', port: 1883},
+        server: {Tortoise.Transport.Tcp, host: System.get_env("MQTT_HOST") || "localhost", port: 1883},
         subscriptions: [{"#", 0}])
     after
     end
