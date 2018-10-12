@@ -1,4 +1,4 @@
-import { Component }          from '@angular/core';
+import { Component, NgModule, VERSION }          from '@angular/core';
 
 @Component({
     selector: 'sense-app',
@@ -6,5 +6,11 @@ import { Component }          from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Sense';
+  title:string;
+  version:string;
+
+  constructor() {  
+    this.title = 'Sense';
+    this.version = VERSION.full
+  }
 }
