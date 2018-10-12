@@ -83,6 +83,6 @@ defmodule Tortoise.Handler.SenseMQTT do
   end
 
   defp parse_payload(payload) do
-    Integer.parse(payload) |> Tuple.to_list |> List.first
+    Float.parse(payload) |> Tuple.to_list |> List.first
   end
 end
