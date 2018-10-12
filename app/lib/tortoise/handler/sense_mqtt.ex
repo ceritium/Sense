@@ -34,7 +34,7 @@ defmodule Tortoise.Handler.SenseMQTT do
       |> Metric.changeset
       |> Repo.insert_or_update
 
-    Measure.write_measure(metric, Integer.parse(payload) |> Tuple.to_list |> List.first)
+    Measure.write_measure(metric, Float.parse(payload) |> Tuple.to_list |> List.first)
 
     IO.puts "[Tortoise.Handler.SenseMQTT] held message: #{Enum.join([username, device_name, metric_name], "-")}/#{payload}/#{state}"
 
