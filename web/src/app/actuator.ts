@@ -5,4 +5,4 @@ export class Actuator {
   value: number;
   type: string;
   device_id: number;
-} 
+}

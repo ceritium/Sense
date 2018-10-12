@@ -1,0 +1,9 @@
+<h2>New Actuator</h2>
+
+<div>
+  <label>Actuator name:</label> <input #actuatorName />
+  <label>Actuator description:</label> <input #actuatorDescription />
+  <button (click)="add(actuatorName.value, actuatorDescription.value); actuatorName.value=''; actuatorDescription.value=''">
+    Add
+  </button>
+</div>

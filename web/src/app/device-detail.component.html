@@ -1,7 +1,7 @@
 <div *ngIf="device">
   <mat-card>
     <mat-card-title>Device details</mat-card-title>
-        
+
     <mat-form-field class="row">
       <input matInput [(ngModel)]="device.name" placeholder="Name" />
     </mat-form-field>
@@ -22,12 +22,18 @@
           <a mat-list-item [routerLink]="['/devices', metric.device_id, 'metrics', metric.id]" color="primary">
             <mat-icon matListIcon>memory</mat-icon>
             <h4 matLine>{{metric.name}}</h4>
-            
+
             <p matLine class="demo-2"> {{metric.description}} </p>
           </a>
         </mat-list-item>
       </mat-list>
+      <span class="done">
+        <button mat-mini-fab [routerLink]="['/devices', device.id, 'metrics']" color="accent">
+          <mat-icon>add circle</mat-icon>
+        </button>
+      </span>
     </mat-card>
+
     <mat-card>
       <h1>Actuator</h1>
       <mat-list>
@@ -35,11 +41,16 @@
           <a mat-list-item [routerLink]="['/devices', actuator.device_id, 'actuators', actuator.id]" color="primary">
             <mat-icon matListIcon>power_settings_new</mat-icon>
             <h4 matLine>{{actuator.name}}</h4>
-            
+
             <p matLine class="demo-2"> {{actuator.description}} </p>
           </a>
         </mat-list-item>
       </mat-list>
+      <span class="done">
+        <button mat-mini-fab [routerLink]="['/devices', device.id, 'actuators']" color="accent">
+          <mat-icon>add circle</mat-icon>
+        </button>
+      </span>
     </mat-card>
-  </mat-card>  
+  </mat-card>
 </div>
