@@ -60,7 +60,7 @@ services:
       - 8888:8888
   mqtt:
     build:
-      context: ./infra
+      context: ./infra/mqtt
       dockerfile: Dockerfile-mqtt
     command: "sh run.sh mosquitto"
     environment:
