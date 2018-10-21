@@ -16,6 +16,7 @@ services:
     depends_on:
       - postgres
       - influxdb
+      - mqtt
     ports:
       - 4000:4000
     user: $UID
@@ -74,7 +75,5 @@ services:
     ports:
       - 1883:1883
       - 9883:9883
-    links:
-      - app
 # 1883 for mqtt
 # 9883 for websocket
