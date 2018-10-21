@@ -50,5 +50,5 @@ RUN buildDeps='git build-base libressl-dev libwebsockets-dev c-ares-dev util-lin
 
 ADD mosquitto.conf /etc/mosquitto/mosquitto.conf
 
-#ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["sh", "run.sh"]
 CMD ["mosquitto"]

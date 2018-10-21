@@ -61,7 +61,7 @@ services:
   mqtt:
     build:
       context: ./infra/mqtt
-      dockerfile: Dockerfile-mqtt
+      dockerfile: Dockerfile
     command: "sh run.sh mosquitto"
     environment:
       - MOSQUITTOCONF_auth_opt_backends=http
