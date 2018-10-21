@@ -23,6 +23,18 @@ import { MaterialModule } from './material.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Observable } from 'rxjs';
+import { IMqttMessage,
+         MqttModule,
+         IMqttServiceOptions } from 'ngx-mqtt';
+import { Subscription } from 'rxjs';
+
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'localhost',
+  port: 9883,
+  path: '/mqtt'
+};
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
   ],
   declarations: [
     AppComponent,
