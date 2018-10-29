@@ -80,6 +80,7 @@ RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/
 RUN mix local.hex --force
 RUN mix local.rebar --force
 
-RUN mkdir -p /app
-ADD . /app/app
+ADD . /app
 WORKDIR /app
+ENTRYPOINT []
+CMD ["mix", "phoenix.server"]

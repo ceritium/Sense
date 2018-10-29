@@ -72,6 +72,7 @@ RUN set -ex \
 #Cleaning
 RUN apt-get clean
   
-RUN mkdir -p /app
-ADD . /app/app
+ADD . /app
 WORKDIR /app
+ENTRYPOINT []
+CMD ["npm", "run", "start"]

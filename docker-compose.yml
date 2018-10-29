@@ -1,12 +1,32 @@
-version: "3"
+version: "3.6"
 services:
-  doc:
-    build:
-       context: ./doc
-    command: make clean && make
-    volumes:
-      - ${PWD}/doc:/doc
+  # doc:
+    # build:
+       # context: ./doc
+    # command: make clean && make
+    # volumes:
+      # - ${PWD}/doc:/doc
+  # balancer_web:
+    # image: tutum/haproxy
+    # environment:
+      # - STATS_AUTH stats:stats
+    # depends:
+      # - web
+    # ports:
+      # - 8080:8080
+      # - 1936:1936
+      
+  # balancer_web:
+    # image: tutum/haproxy
+    # environment:
+      # - STATS_AUTH stats:stats
+    # depends:
+      # - web
+    # ports:
+      # - 8080:8080
+      # - 1936:1936
   app:
+    image: basestylo/sense_app
     build:
       context: ./app
     environment:
@@ -20,17 +40,25 @@ services:
     ports:
       - 4000:4000
     user: $UID
-    command: bash -c "mix phoenix.server"
     volumes:
       - ./app:/app
     stdin_open: true
     tty: true
-
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: vip
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+      
   web:
+    image: basestylo/sense_web
     build:
       context: ./web
     user: $UID
-    command: bash -c "npm run start"
     environment:
       - API_HOST=app
     volumes:
@@ -41,11 +69,28 @@ services:
       - app
     stdin_open: true
     tty: true
-
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: vip
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+      
   postgres:
     image: postgres:9.6.3
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=sense_dev
     ports:
-      - 5432
+      - 5432:5432
+    deploy:
+      mode: replicated
+      replicas: 1
+      # endpoint_mode: dnsrr
+
 
   influxdb:
     image: influxdb:1.6
@@ -53,17 +98,11 @@ services:
       - 8086:8086
       - 8083:8083
 
-  chronograf:
-    image: chronograf:latest
-    depends_on:
-      - influxdb
-    ports:
-      - 8888:8888
   mqtt:
+    image: basestylo/sense_mqtt
     build:
       context: ./infra/mqtt
       dockerfile: Dockerfile
-    command: "sh run.sh mosquitto"
     environment:
       - MOSQUITTOCONF_auth_opt_backends=http
       - MOSQUITTOCONF_auth_opt_superusers=admin
@@ -77,3 +116,10 @@ services:
       - 9883:9883
 # 1883 for mqtt
 # 9883 for websocket
+
+networks:
+  default:
+    driver: overlay
+    attachable: true
+    
+    
