@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: ./kompose convert
+    kompose.version: ""
+  creationTimestamp: null
+  labels:
+    io.kompose.service: influxdb
+  name: influxdb
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: influxdb
+    spec:
+      containers:
+      - image: influxdb:1.6
+        name: influxdb
+        ports:
+        - containerPort: 8086
+        - containerPort: 8083
+        resources:
+          requests:
+            cpu: "100m"
+      restartPolicy: Always
+status: {}
