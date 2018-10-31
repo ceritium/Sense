@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: app
+    spec:
+      containers:
+      - env:
+        - name: MIX_ENV
+          value: prod
+        - name: INFLUXDB_HOST
+          value: influxdb
+        - name: PG_HOST
+          value: postgres
+        - name: PG_USERNAME
+          value: postgres
+        image: eu.gcr.io/sense-219918/sense_app:9833a068aa59ec8f006da58656228a3eb8d95c4e
+        name: app
+        ports:
+          - containerPort: 4000
+        resources:
+          requests:
+            cpu: "10m"
+      restartPolicy: Always
+      volumes:
+        - name: app-claim0
+          persistentVolumeClaim:
+            claimName: app-claim0
+status: {}
