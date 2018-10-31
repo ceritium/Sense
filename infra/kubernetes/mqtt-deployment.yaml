@@ -40,6 +40,6 @@ spec:
         - containerPort: 9883
         resources:
           requests:
-            cpu: "100m"
+            cpu: "10m"
       restartPolicy: Always
 status: {}

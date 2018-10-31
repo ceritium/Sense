@@ -20,7 +20,7 @@ spec:
       containers:
       - env:
         - name: POSTGRES_DB
-          value: sense_dev
+          value: sense_prod
         - name: POSTGRES_USER
           value: postgres
         image: postgres:9.6.3
