@@ -12,7 +12,7 @@ docker push eu.gcr.io/${PROJECT_ID}/sense_app:$(git rev-parse HEAD)
 docker push eu.gcr.io/${PROJECT_ID}/sense_app:latest
 
 # APP: Angular Frontend app
-docker build ../web -t sense_web:latest
+docker build ../web -t sense_web:latest --target prod-image 
 
 docker tag sense_web:latest eu.gcr.io/${PROJECT_ID}/sense_web:$(git rev-parse HEAD)
 docker tag sense_web:latest eu.gcr.io/${PROJECT_ID}/sense_web:latest

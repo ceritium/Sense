@@ -57,6 +57,7 @@ services:
     image: basestylo/sense_web
     build:
       context: ./web
+      target: dev
     user: $UID
     environment:
       - API_HOST=app

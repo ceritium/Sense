@@ -13,7 +13,7 @@ import { ActuatorService }          from './actuator.service';
 import { DeviceService }          from './device.service';
 import { MetricService }          from './metric.service';
 import { MeasureService }          from './measure.service';
-import { DeviceSearchComponent }  from './device-search.component';
+// import { DeviceSearchComponent }  from './device-search.component';
 import { ActuatorDetailComponent }      from './actuator-detail.component';
 import { MetricDetailComponent }      from './metric-detail.component';
 import { ActuatorsComponent }      from './actuators.component';
@@ -52,7 +52,7 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     ActuatorDetailComponent,
     DeviceDetailComponent,
     DevicesComponent,
-    DeviceSearchComponent,
+   // DeviceSearchComponent,
     MetricsComponent,
     MetricDetailComponent,
     MeasureComponent

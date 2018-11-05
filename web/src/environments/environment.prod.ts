@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  serverUrl: "http://senseapp.space",
+  apiUrl: "http://api.senseapp.space"
 };
