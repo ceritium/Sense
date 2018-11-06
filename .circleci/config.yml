@@ -60,3 +60,28 @@ jobs:
           paths: "./app/_build"
       - store_test_results:
           path: "./app/tmp/reports"
+  deploy:
+    docker:
+      - image: google/cloud-sdk:latest
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: apt-get install kubectl
+      - run: |
+          echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+      - run: cd infra && ./push_images.sh
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy
+      # - deploy:
+          # requires:
+            # - build
+          # filters:
+            # branches:
+              # only: master
